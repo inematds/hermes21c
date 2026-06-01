@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.7 · One Brain | Hermes 21C</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124,58,237,0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+    @keyframes ob-flow { 0% { stroke-dashoffset: 28 } 100% { stroke-dashoffset: 0 } }
+    @media (prefers-reduced-motion: no-preference) { .ob-link { stroke-dasharray: 8 6; animation: ob-flow 1.4s linear infinite; } }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+      <div class="flex items-center space-x-4">
+        <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span></a>
+        <span class="text-neutral-600">|</span>
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+      </div>
+      <div class="flex items-center space-x-1 sm:space-x-2">
+        <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+        <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+        <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder & Operação</span></a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div></div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.7</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.7</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔗 One Brain · Hermes + Claude Code</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-8">O conceito #21, que fecha o curso. O Hermes conhece seus projetos, clientes e decisões e vive em todo lugar; o Claude Code é a ferramenta de precisão para construir. Conectados, eles compartilham <strong class="text-purple-400">memória e entendimento</strong> — deixam de operar isolados.</p>
+
+      <!-- HERO: dois cérebros com ponte -->
+      <div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+        <svg viewBox="0 0 1000 220" class="w-full h-auto" role="img" aria-label="Hermes e Claude Code conectados por uma memória compartilhada no centro que sincroniza os dois">
+          <defs>
+            <linearGradient id="m37-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+            <filter id="m37-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <pattern id="m37-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#a855f7" opacity="0.12"/></pattern>
+          </defs>
+          <rect x="0" y="0" width="1000" height="220" fill="url(#m37-grid)"/>
+          <g fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.7">
+            <line class="ob-link" x1="226" y1="110" x2="412" y2="110"/>
+            <line class="ob-link" x1="588" y1="110" x2="774" y2="110"/>
+          </g>
+          <g filter="url(#m37-glow)"><rect x="48" y="74" width="178" height="72" rx="16" fill="#1a1230" stroke="url(#m37-grad)" stroke-width="2.5"/></g>
+          <text x="137" y="104" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="700" font-size="17">🪽 Hermes</text>
+          <text x="137" y="125" text-anchor="middle" fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11.5">contexto + ubíquo</text>
+          <g filter="url(#m37-glow)"><rect x="412" y="66" width="176" height="88" rx="16" fill="#0e1b26" stroke="#38bdf8" stroke-width="2.5"/></g>
+          <text x="500" y="104" text-anchor="middle" fill="#9ad6ff" font-family="Inter,sans-serif" font-weight="700" font-size="15">Memória</text>
+          <text x="500" y="124" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-size="11.5">compartilhada</text>
+          <g filter="url(#m37-glow)"><rect x="774" y="74" width="178" height="72" rx="16" fill="#1a1230" stroke="url(#m37-grad)" stroke-width="2.5"/></g>
+          <text x="863" y="104" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="700" font-size="16">Claude Code</text>
+          <text x="863" y="125" text-anchor="middle" fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11.5">precisão para construir</text>
+        </svg>
+        <p class="text-xs text-neutral-500 mt-2 text-center">Diagrama ilustrativo · dois cérebros, uma memória no meio</p>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Fecho</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔗 Conectar os dois cérebros</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A ideia central do conceito final: ligar o <strong class="text-purple-400">cérebro do Hermes</strong> ao <strong class="text-purple-400">Claude Code</strong> para que compartilhem contexto. Cada um é poderoso sozinho, mas juntos formam uma mente só operando por duas ferramentas diferentes.</p>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-3 flex items-center"><span class="mr-2">🧩</span> Uma mente, duas ferramentas</h3>
+        <p class="text-neutral-300">Pense numa pessoa que usa o celular no caminho e o computador na mesa: é a mesma cabeça, ferramentas diferentes. Hermes e Claude Code conectados funcionam assim.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🐕 Hermes vs Claude Code: onde mora cada um</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Lembra da analogia da Trilha 1 — cão vs contratado? Aqui ela retorna num par complementar. Hermes é o <strong class="text-purple-400">contexto que vive com você</strong>; Claude Code é a <strong class="text-purple-400">precisão para construir</strong>.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">🪽 Hermes</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Conhece projetos, clientes e decisões.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Vive em todo lugar (celular, chat, OS).</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Memória de longo prazo do seu mundo.</span></li>
+          </ul>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">⌨️ Claude Code</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Ferramenta de precisão para construir.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Foco profundo numa tarefa de engenharia.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Excelente no detalhe do código.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🧠 Memória compartilhada</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A chave que torna a conexão significativa: o que um sabe, o outro <strong class="text-purple-400">acessa</strong>. Você conta uma decisão de produto ao Hermes; quando abre o Claude Code para implementar, ele já conhece o contexto. Sem reexplicar nada.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-sm font-semibold text-purple-400 mb-3">Fluxo conectado (ilustrativo)</h3>
+        <div class="bg-dark-900 rounded-lg p-4 font-mono text-sm text-neutral-300 overflow-x-auto space-y-1">
+          <div class="text-neutral-500"># no Hermes (celular)</div>
+          <div>"decidimos usar Postgres no projeto X"</div>
+          <div class="text-neutral-500 mt-2"># mais tarde, no Claude Code (mesa)</div>
+          <div><span class="text-purple-400">→</span> já sabe: projeto X usa Postgres</div>
+          <div class="text-emerald-400"># sem reexplicar contexto ✓</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⚠️ O risco dos silos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Sem conexão, surge o problema dos <strong class="text-purple-400">silos</strong>: se você fala uma coisa ao Hermes e outra ao Claude Code, eles divergem. Cada um age sobre um pedaço da verdade — e você acaba com retrabalho e decisões inconsistentes.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Silos (isolados)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cada um conhece só metade.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você repete contexto toda hora.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Decisões se contradizem.</span></li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Ponte (conectados)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mesma verdade nos dois lados.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Contexto fluindo sem reexplicar.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Coerência entre o que se planeja e o que se constrói.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Para a conexão ter valor, ambos precisam ter acesso ao que o outro faz. Silo = contradição; ponte = coerência.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎓 Fechando os 21 conceitos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Este é o conceito #21 — ele costura tudo o que veio antes. Você partiu do <strong class="text-purple-400">agente que faz</strong> (T1), passou pelas <strong class="text-purple-400">capacidades</strong> (T2) e chegou ao <strong class="text-purple-400">poder e operação</strong> (T3). One Brain é a visão única onde tudo se conecta.</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">T1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Fundamentos</h4><p class="text-neutral-300 text-sm">O que é o agente, onde vive, como conectar e escolher o modelo.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">T2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Capacidades</h4><p class="text-neutral-300 text-sm">Memória, soul, integrações, MCPs, skills e as teclas de poder.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">T3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Poder & Operação</h4><p class="text-neutral-300 text-sm">Segurança, goals, sub-agentes, heartbeat, budget, OS e One Brain.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🛠️ Próximo passo: monte seu Operating System</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Teoria sem prática não vira operação. Agora que você domina os 21 conceitos, o próximo passo é <strong class="text-purple-400">montar o seu próprio operating system de IA</strong>. Comece pequeno, conecte as peças e itere — como você viu o sistema fazer com as dreaming improvements.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Roteiro mínimo</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>1.</strong> Instale e dê um soul ao seu Hermes (identidade e estilo).</li>
+          <li><strong>2.</strong> Conecte 2-3 integrações com menor acesso (ler primeiro).</li>
+          <li><strong>3.</strong> Defina um teto de gasto e um cron de briefing matinal.</li>
+          <li><strong>4.</strong> Ligue o backup no GitHub e conecte o Claude Code.</li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Não tente montar o OS perfeito de uma vez. Ligue uma peça, use por uma semana, e deixe as <strong>dreaming improvements</strong> sugerirem a próxima. O sistema cresce com você — exatamente como o Hermes foi pensado.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Uma mente</div><p class="text-xs text-neutral-400">Duas ferramentas.</p></div>
+        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Memória shared</div><p class="text-xs text-neutral-400">Sem reexplicar.</p></div>
+        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Sem silos</div><p class="text-xs text-neutral-400">Ponte = coerência.</p></div>
+        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Seu OS</div><p class="text-xs text-neutral-400">Comece, conecte, itere.</p></div>
+      </div>
+    </section>
+
+    <!-- RESUMO / CTA FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎓</span> Resumo do Módulo &amp; do Curso</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Dois cérebros, uma mente</strong><span class="text-neutral-400"> - Hermes (contexto + ubíquo) e Claude Code (precisão) conectados.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Memória compartilhada</strong><span class="text-neutral-400"> - o que um sabe, o outro acessa; sem reexplicar contexto.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Evite silos</strong><span class="text-neutral-400"> - sem conexão, eles divergem e geram retrabalho.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">21 conceitos fechados</strong><span class="text-neutral-400"> - do agente que faz ao operating system completo.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Próximo passo</strong><span class="text-neutral-400"> - monte o seu próprio operating system de IA.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-6 mb-8 text-center">
+          <h3 class="text-xl font-bold text-purple-400 mb-2">🚀 Agora é com você</h3>
+          <p class="text-neutral-300">Você terminou as três trilhas do Hermes 21C. O próximo passo não é assistir a mais um módulo — é <strong class="text-purple-400">montar seu Operating System</strong> e colocar os 21 conceitos para trabalhar.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo anterior</a>
+          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Início do curso →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Hermes 21C · Trilha 3 · Poder & Operação · INEMA.CLUB · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

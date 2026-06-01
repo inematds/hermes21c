@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.5 · MCPs | Hermes 21C</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder & Operação</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
+      <span class="text-blue-400">Módulo 2.5</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.5</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔌 MCPs</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">"O manual de instruções." MCP = Model Context Protocol. Se a API é a fiação exposta, o MCP é o manual em volta — um controle remoto universal que conecta o Hermes a quase tudo, gastando muito menos tokens.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">22</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Interm.</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔌 O que é MCP</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">MCP significa <strong class="text-blue-400">Model Context Protocol</strong>. É um padrão que empacota uma ferramenta de um jeito que o modelo entende — incluindo quais ações existem, o que cada uma faz e como chamá-las. Em vez de o Hermes adivinhar como usar a ferramenta, ele recebe o "manual" pronto.</p>
+
+      <div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+        <svg viewBox="0 0 900 220" class="w-full h-auto" role="img" aria-label="O Hermes contém vários MCPs como Granola, Zapier e Drive, cada um expondo ferramentas prontas">
+          <defs><filter id="m25-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g filter="url(#m25-glow)"><rect x="20" y="24" width="860" height="172" rx="18" fill="#0e1622" stroke="#60a5fa" stroke-width="2.6"/></g>
+          <text x="120" y="56" fill="#60a5fa" font-family="Inter,sans-serif" font-weight="700" font-size="17">HERMES</text>
+          <g font-family="Inter,sans-serif">
+            <g><rect x="60" y="86" width="180" height="86" rx="12" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="150" y="120" text-anchor="middle" fill="#9ad6ff" font-weight="700" font-size="15">📓 Granola MCP</text><text x="150" y="146" text-anchor="middle" fill="#bfe6ff" font-size="12.5">reuniões</text></g>
+            <g><rect x="270" y="86" width="180" height="86" rx="12" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="360" y="120" text-anchor="middle" fill="#9ad6ff" font-weight="700" font-size="15">⚙️ Zapier MCP</text><text x="360" y="146" text-anchor="middle" fill="#bfe6ff" font-size="12.5">milhares de apps</text></g>
+            <g><rect x="480" y="86" width="180" height="86" rx="12" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="570" y="120" text-anchor="middle" fill="#9ad6ff" font-weight="700" font-size="15">🗂️ Drive MCP</text><text x="570" y="146" text-anchor="middle" fill="#bfe6ff" font-size="12.5">arquivos</text></g>
+            <g><rect x="690" y="86" width="150" height="86" rx="12" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="765" y="134" text-anchor="middle" fill="#9ad6ff" font-weight="700" font-size="17">…</text></g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Em uma frase</h3>
+        <p class="text-neutral-300">MCP é um jeito padronizado de plugar ferramentas no Hermes. Adicionou o MCP, o agente já sabe todos os "botões" daquela ferramenta.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔧 API é a fiação, MCP é o manual</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A melhor analogia: a <strong class="text-blue-400">API</strong> é a fiação elétrica exposta — funciona, mas você precisa saber exatamente onde cada fio vai. O <strong class="text-blue-400">MCP</strong> é o manual/pacote de instruções em volta dessa fiação: um <strong class="text-blue-400">controle remoto universal</strong> com os botões já rotulados.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-blue-400 mb-3">🔧 API (fiação exposta)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Você precisa descobrir os endpoints</li>
+            <li>O modelo "testa" como chamar</li>
+            <li>Cada uso reexplica a ferramenta</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-blue-400 mb-3">📘 MCP (manual pronto)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Lista as ações disponíveis</li>
+            <li>O modelo já sabe os "botões"</li>
+            <li>Uso padronizado e repetível</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Controle remoto universal</h3>
+        <p class="text-neutral-300">Um único protocolo conecta o Hermes a praticamente tudo. Em vez de aprender a "fiação" de cada serviço, ele lê o manual e opera — como apontar um controle universal para qualquer aparelho.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">⚡ Por que MCP em vez de só API key — token-efficient</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A grande vantagem técnica: MCP é muito mais <strong class="text-blue-400">token-efficient</strong>. O modelo lê o manual <strong class="text-blue-400">uma vez</strong> e já conhece todas as ações (rascunhar email, criar evento, buscar arquivo) — sem ficar reexplicando a ferramenta a cada chamada. Menos tokens, menos custo, mais consistência.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Só API key (verboso)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Reexplica a ferramenta toda vez</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Checagem repetida = mais tokens</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Maior chance de erro de uso</span></li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ MCP (eficiente)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Lê o manual uma vez</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Já sabe todos os botões</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Uso padronizado e barato</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Conecta com budget</h3>
+        <p class="text-neutral-300">Como ~73% de cada request é overhead fixo (Trilha 3, módulo 3.5), economizar tokens repetidos com MCP tem impacto real no custo ao longo do tempo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📓 Granola MCP — exemplo simples</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O Granola MCP conecta o Hermes às suas reuniões. É <strong class="text-blue-400">plug-and-play</strong>: você adiciona o MCP pelo nome e autoriza no navegador via OAuth — sem chave para guardar. A partir daí, perguntar sobre reuniões "simplesmente funciona".</p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Informe o nome do MCP</h4>
+            <p class="text-neutral-300 text-sm">Você diz "adicionar Granola MCP" — não precisa de chave nem configuração manual.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Autorize no navegador (OAuth)</h4>
+            <p class="text-neutral-300 text-sm">Abre uma aba, você faz login e clica "Allow". Sem chave para colar em lugar nenhum.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pronto para usar</h4>
+            <p class="text-neutral-300 text-sm">"Qual foi minha última reunião?" já responde — o MCP expõe as ações automaticamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🔗</span> OAuth vs token</h3>
+        <p class="text-neutral-300">Quando o MCP oferece OAuth (como o Granola), prefira: não há chave para vazar. Quando exige token (próximo tópico), guarde no env — nunca no chat.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">⚙️ Zapier MCP — milhares de apps</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O Zapier MCP é o canivete dos canivetes: você <strong class="text-blue-400">sobe servidores</strong> que se conectam a apps, adiciona as tools que quiser (ex.: "ler email"), <strong class="text-blue-400">gera um token</strong> e o adiciona via variável de ambiente. Isso abre milhares de integrações de uma vez.</p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-sm font-semibold text-neutral-400 mb-3">Adicionando o token do Zapier MCP (ilustrativo)</h3>
+        <pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto"># gere o token no painel do Zapier, depois NO TERMINAL:
+export ZAPIER_MCP_TOKEN="SEU_TOKEN_AQUI"
+
+# NUNCA cole o token no chat — ele é indexado e vai pros backups
+# o MCP lê a variável de ambiente</pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Segurança do token (igual à API key)</h3>
+        <p class="text-neutral-300">O token do MCP é uma credencial como qualquer outra: <strong>nunca</strong> no chat, <strong>sempre</strong> no env via terminal. Tudo que entra no chat é salvo/indexado — e copiado em backups diários.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🛡️ Segure "enviar email" por ora</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Ao montar um MCP de email, adicione tools de <strong class="text-blue-400">leitura</strong> ("ler email", "rascunhar"), mas <strong class="text-blue-400">segure "enviar/responder email"</strong> até confiar no fluxo. Gente já se queimou com agentes enviando emails indevidos. É o princípio do menor acesso na prática.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Libere primeiro (baixo risco)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Ler email</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Rascunhar / criar (sem enviar)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Buscar e resumir</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Segure por ora (alto risco)</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Enviar email</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Responder automaticamente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Qualquer ação irreversível</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra de bolso</h3>
+        <p class="text-neutral-300">Habilite tools por nível de risco: leitura primeiro, escrita reversível depois, ações irreversíveis só quando confiar. Menor acesso protege você e quem recebe.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">MCP</strong><span class="text-neutral-400"> — Model Context Protocol: manual padronizado de uma ferramenta.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">API × MCP</strong><span class="text-neutral-400"> — fiação exposta vs controle remoto universal.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Token-efficient</strong><span class="text-neutral-400"> — lê o manual uma vez; menos tokens, mais consistência.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Exemplos</strong><span class="text-neutral-400"> — Granola (OAuth) e Zapier (token via env).</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Menor acesso</strong><span class="text-neutral-400"> — segure "enviar email"; token nunca no chat.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.6 — Skills & Muscle Memory: melhora com o uso</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
+          <a href="modulo-2-6.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Hermes 21C · Módulo 2.5 · INEMA.CLUB · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

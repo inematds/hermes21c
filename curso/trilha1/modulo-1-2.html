@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.2 · O que é o Hermes | Hermes 21C</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s}
+    }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder &amp; Operação</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
+      <span class="text-emerald-400">Módulo 1.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🐕 O que é o Hermes (e quando usar)</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-8">Onde o Hermes se encaixa frente a Claude Code, OpenClaw e IDEs. A ideia que organiza tudo: o Hermes é seu cão, não o contratado — mora com você, te conhece e melhora ano a ano.</p>
+
+      <!-- SVG: cão (persistente, cresce) × contratado (sessão, esquece) -->
+      <div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+        <svg viewBox="0 0 1000 230" class="w-full h-auto" role="img" aria-label="O Hermes é um companheiro persistente que cresce ao longo do tempo; o contratado entrega uma sessão e esquece">
+          <defs>
+            <linearGradient id="m12-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+            <filter id="m12-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <pattern id="m12-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#10b981" opacity="0.12"/></pattern>
+            <marker id="m12-ah" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"/></marker>
+            <marker id="m12-ahn" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#9ca3af"/></marker>
+          </defs>
+          <rect x="0" y="0" width="1000" height="230" fill="url(#m12-grid)"/>
+          <line x1="500" y1="20" x2="500" y2="210" stroke="#10b981" stroke-width="1.5" stroke-dasharray="7 7" opacity="0.4"/>
+          <text x="250" y="32" text-anchor="middle" fill="#34d399" font-family="Inter,sans-serif" font-weight="700" font-size="14">🐕 HERMES — cresce com você</text>
+          <text x="750" y="32" text-anchor="middle" fill="#9ca3af" font-family="Inter,sans-serif" font-weight="700" font-size="14">👷 CONTRATADO — uma sessão</text>
+          <!-- left: ascending growth -->
+          <path d="M70,180 L430,180" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4"/>
+          <g filter="url(#m12-glow)"><rect x="60" y="150" width="80" height="34" rx="9" fill="#0e2018" stroke="url(#m12-grad)" stroke-width="2"/><text x="100" y="172" text-anchor="middle" fill="#34d399" font-family="Inter,sans-serif" font-weight="600" font-size="12">ano 1</text></g>
+          <g filter="url(#m12-glow)"><rect x="190" y="120" width="90" height="38" rx="10" fill="#0e2018" stroke="url(#m12-grad)" stroke-width="2.2"/><text x="235" y="144" text-anchor="middle" fill="#34d399" font-family="Inter,sans-serif" font-weight="600" font-size="12">ano 2</text></g>
+          <g filter="url(#m12-glow)"><rect x="320" y="78" width="110" height="44" rx="11" fill="#0e2018" stroke="url(#m12-grad)" stroke-width="2.5"/><text x="375" y="100" text-anchor="middle" fill="#34d399" font-family="Inter,sans-serif" font-weight="700" font-size="13">ano 3+</text><text x="375" y="115" text-anchor="middle" fill="#a7f3d0" font-family="Inter,sans-serif" font-size="10">te conhece</text></g>
+          <!-- right: isolated sessions that reset -->
+          <g><rect x="565" y="60" width="120" height="40" rx="10" fill="#26201a" stroke="#9ca3af" stroke-width="2"/><text x="625" y="84" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-weight="600" font-size="12">job A → 🗑️</text></g>
+          <g><rect x="565" y="112" width="120" height="40" rx="10" fill="#26201a" stroke="#9ca3af" stroke-width="2"/><text x="625" y="136" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-weight="600" font-size="12">job B → 🗑️</text></g>
+          <g><rect x="565" y="164" width="120" height="40" rx="10" fill="#26201a" stroke="#9ca3af" stroke-width="2"/><text x="625" y="188" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-weight="600" font-size="12">job C → 🗑️</text></g>
+          <text x="820" y="118" text-anchor="middle" fill="#9ca3af" font-family="Inter,sans-serif" font-size="12">cada job começa</text>
+          <text x="820" y="136" text-anchor="middle" fill="#9ca3af" font-family="Inter,sans-serif" font-size="12">do zero</text>
+        </svg>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🐕 Hermes = seu Labrador</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A analogia central: o Hermes é como seu <strong class="text-emerald-400">cão</strong>. Ele <strong class="text-emerald-400">mora com você</strong>, te conhece e fica melhor ano após ano. Não é uma ferramenta que você liga e desliga: é uma relação de longo prazo.</p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏡</span> O que "morar com você" significa</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Persistência: não esquece quem você é entre conversas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Familiaridade: aprende seu jeito, suas rotinas, seus projetos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Evolução: cada mês fica mais útil, não menos</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Trate o Hermes como um companheiro de longo prazo: invista nele no início (memória, soul, integrações) e o retorno cresce com o tempo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">👷 Claude Code = o contratado</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-emerald-400">Claude Code</strong> é o contratado: excelente para um job específico, uma ferramenta de precisão. Mas ele <strong class="text-emerald-400">não mora com você</strong> nem te lembra na próxima vez.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O contratado é ótimo para</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Um trabalho técnico de precisão (código)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tarefas pontuais com começo, meio e fim</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Profundidade num projeto específico</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O contratado NÃO faz</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Lembrar de você na próxima sessão</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Acompanhar você no dia a dia</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Construir uma relação de longo prazo</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-sm text-neutral-500"><strong>Importante:</strong> não é "melhor ou pior" — são papéis diferentes. O módulo 3.7 mostra como conectar os dois para que compartilhem memória.</p>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🛋️ OpenClaw &amp; anti-gravity</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Para completar o mapa: o <strong class="text-emerald-400">OpenClaw</strong> é o colega de quarto e o <strong class="text-emerald-400">anti-gravity</strong> é sua IDE/parceiro de código. Cada peça do ecossistema cumpre um papel.</p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">🐕</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Hermes — seu cão</h4><p class="text-neutral-300 text-sm">Mora com você, te conhece, melhora com o tempo. Companheiro persistente.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">👷</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Claude Code — o contratado</h4><p class="text-neutral-300 text-sm">Ferramenta de precisão para um job; não te lembra depois.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">🛋️</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">OpenClaw — colega de quarto</h4><p class="text-neutral-300 text-sm">Divide o espaço com você no fluxo de trabalho.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">🧑‍💻</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">anti-gravity — sua IDE/parceiro</h4><p class="text-neutral-300 text-sm">O ambiente onde você programa lado a lado com a IA.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📈 Quanto mais você usa, mais te conhece</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A essência do Hermes: <strong class="text-emerald-400">quanto mais você usa, mais ele te conhece</strong> — e mais útil fica. O valor é composto: cresce com o tempo, não aparece de uma vez no primeiro dia.</p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Efeito de acúmulo</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Dia 1</strong> — um agente genérico, capaz mas que não te conhece</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Semanas depois</strong> — sabe seus projetos, contatos e preferências</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Meses depois</strong> — antecipa o que você precisa antes de pedir</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Não julgue o Hermes pelo primeiro uso. O ganho real aparece quando ele já acumulou contexto sobre você — a memória (Trilha 2) é o motor disso.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🏃 Quando usar Hermes (e quando não)</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Regra simples: use o Hermes quando estiver <strong class="text-emerald-400">móvel</strong> — café, academia, no celular. Use ferramentas de desktop quando estiver <strong class="text-emerald-400">na mesa</strong>, com foco e teclado.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Prefira o Hermes</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Longe da mesa (café, academia, rua)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Pelo celular, em movimento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tarefas que dependem do seu contexto pessoal</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Prefira desktop tools</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sessão longa de código na mesa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Quando precisa de IDE e teclado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trabalho de precisão num projeto técnico</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🎨 Design ethos: viver com você</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O princípio de design do Hermes é <strong class="text-emerald-400">viver com você e melhorar com o tempo</strong> — não ser uma ferramenta descartável. Esse ethos explica praticamente todas as outras decisões do produto.</p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🧬</span> O ethos em decisões concretas</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Memória local</strong> (Trilha 2) — para acumular contexto sobre você</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Soul.md</strong> — para ter a sua personalidade e o seu jeito</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Backup no GitHub</strong> (Trilha 3) — para nunca perder a relação construída</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Sempre que uma decisão do Hermes parecer estranha, pergunte: "isso ajuda ele a viver comigo e melhorar?" — normalmente a resposta explica o porquê.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🧯 Erros comuns &amp; o mapa de bolso</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Antes de fechar: os tropeços mais frequentes de quem começa — e uma referência rápida de qual ferramenta usar para cada situação.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Faça</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Dê tempo: o valor cresce com o uso</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Invista cedo em memória e soul</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Escolha a ferramenta pelo contexto (móvel x mesa)</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evite</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esperar "mágica" no primeiro dia</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esperar que o Claude Code te lembre depois</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar o Hermes para o que pede IDE e teclado</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-sm font-semibold text-neutral-400 mb-3">Mapa de bolso (qual ferramenta usar)</h3>
+        <pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">móvel / acompanha você / contexto pessoal  -&gt; 🐕 Hermes
+job técnico de precisão / sessão única      -&gt; 👷 Claude Code
+colega no fluxo de trabalho                 -&gt; 🛋️ OpenClaw
+ambiente de código lado a lado              -&gt; 🧑‍💻 anti-gravity (IDE)</pre>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Seu cão</strong><span class="text-neutral-400"> — mora com você, te conhece, melhora ano a ano.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">O contratado</strong><span class="text-neutral-400"> — Claude Code: ótimo para um job, não te lembra.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Ecossistema</strong><span class="text-neutral-400"> — OpenClaw (colega de quarto), anti-gravity (IDE).</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Valor composto</strong><span class="text-neutral-400"> — quanto mais usa, mais te conhece.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Quando usar</strong><span class="text-neutral-400"> — móvel = Hermes; mesa = desktop tools.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.3 — Um Cérebro, 22 Bocas</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
+          <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Hermes 21C · Módulo 1.2 · INEMA.CLUB · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
