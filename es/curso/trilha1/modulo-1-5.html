@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 1.5 · OAuth vs API Key | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+<link href="https://inematds.github.io/hermes21c/curso/trilha1/modulo-1-5.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha1/modulo-1-5.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha1/modulo-1-5.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-5.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha1/modulo-1-5.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-1-5.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder y operación</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-emerald-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-emerald-400" href="index.html">Ruta 1</a><span>/</span>
+<span class="text-emerald-400">Módulo 1.5</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.5</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🔑 OAuth vs API Key</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">Las dos formas de conectar un modelo a Hermes. OAuth es el botón que recuperas; la API key es la llave que guardas y puedes rotar. Saber cuál usar evita errores de configuración.</p>
+<!-- SVG: fluxo de decisão OAuth × API key -->
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+<svg aria-label="Flujo de decisión: si el proveedor ofrece OAuth, inicias sesión en el navegador; si no, pegas una API key que está en el servidor y se puede rotar" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<lineargradient id="m15-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="m15-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="3"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m15-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m15-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+<marker id="m15-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m15-grid)" height="250" width="1000" x="0" y="0"></rect>
+<!-- pergunta -->
+<g filter="url(#m15-glow)"><rect fill="#0e2018" height="66" rx="14" stroke="url(#m15-grad)" stroke-width="2.5" width="200" x="40" y="92"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="140" y="120">El proveedor</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="140" y="140">¿ofrece OAuth?</text>
+<!-- sim -->
+<g fill="none" opacity="0.75" stroke="#34d399" stroke-width="2"><path d="M240,110 C320,110 340,60 430,60" marker-end="url(#m15-ah)"></path></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="330" y="78">SÍ</text>
+<!-- nao -->
+<g fill="none" opacity="0.7" stroke="#38bdf8" stroke-width="2"><path d="M240,140 C320,140 340,190 430,190" marker-end="url(#m15-ahc)"></path></g>
+<text fill="#38bdf8" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="330" y="174">NO</text>
+<!-- OAuth box -->
+<g filter="url(#m15-glow)"><rect fill="#0e2018" height="58" rx="13" stroke="url(#m15-grad)" stroke-width="2.4" width="230" x="430" y="32"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="545" y="58">🔘 OAuth</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="545" y="78">login + Allow en el navegador</text>
+<g fill="none" opacity="0.65" stroke="#34d399" stroke-width="2"><path d="M660,61 L720,61" marker-end="url(#m15-ah)"></path></g>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="800" y="48">Grok, ChatGPT</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="800" y="70">revocable: puedes recuperarlo</text>
+<!-- API key box -->
+<g filter="url(#m15-glow)"><rect fill="#0e1b26" height="58" rx="13" stroke="#38bdf8" stroke-width="2.4" width="230" x="430" y="160"></rect></g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="545" y="186">🗝️ API Key</text>
+<text fill="#bfe6ff" font-family="ui-monospace,monospace" font-size="12" text-anchor="middle" x="545" y="206">sk-xxxx... en el servidor</text>
+<g fill="none" opacity="0.6" stroke="#38bdf8" stroke-width="2"><path d="M660,189 L720,189" marker-end="url(#m15-ahc)"></path></g>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="800" y="176">Claude y otros</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="800" y="198">rotatable: la anterior deja de funcionar</text>
+</svg>
+</div>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Práctico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔘 Qué es OAuth</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">No <strong class="text-emerald-400">OAuth</strong>, abre el navegador, tú inicias sesión y haces clic <strong class="text-emerald-400">"Allow"</strong>. La conexión queda lista, sin manipular ninguna clave. Es el método más simple y seguro cuando está disponible.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Abre el navegador</h4><p class="text-neutral-300 text-sm">Hermes te lleva a la página del proveedor.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Inicia sesión y haz clic en "Allow"</h4><p class="text-neutral-300 text-sm">Autorizas el acceso con tu cuenta.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Conexión lista</h4><p class="text-neutral-300 text-sm">No hay ninguna clave que guardar; puedes revocarla cuando quieras.</p></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🗝️ Qué es una API Key</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Una <strong class="text-emerald-400">API key</strong> es una cadena de caracteres que reside en un servidor y da acceso a <strong class="text-emerald-400">todos los modelos</strong> del proveedor. Es la forma que se usa cuando no hay OAuth.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Cómo se ve una API key (ilustrativo)</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">sk-or-v1-3f9a...   ← string secreta, vive no servidor
+# dá acesso a todos os modelos do provedor
+# fonte de modelos para comparar: openrouter.ai/models</pre>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Características</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Es una cadena secreta: trátala como una contraseña</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Da acceso amplio a los modelos del proveedor</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Está en un servidor, no en tu navegador</span></li>
+</ul>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔁 Rotar claves</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Puedes <strong class="text-emerald-400">rotar la API key en cualquier momento</strong>. Al rotar, la clave antigua <strong class="text-emerald-400">nunca más funciona</strong> — es tu defensa si una clave se filtra.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Cuándo rotar</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sospecha de filtración</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Pegaste la clave por error en algún lugar</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Rutina periódica de seguridad</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Qué NO olvidar</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>La clave antigua deja de funcionar de inmediato</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Actualiza el lugar donde se usaba la clave</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nunca pegues la clave en el chat (Recorrido 2/3)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🧭 Quién usa qué</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">No todos los proveedores ofrecen OAuth. <strong class="text-emerald-400">Grok y ChatGPT</strong> se conectan mediante OAuth; el <strong class="text-emerald-400">Claude NO ofrece OAuth</strong> — solo mediante API key.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">🔘 Mediante OAuth</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Grok</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>ChatGPT</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-bold text-blue-400 mb-4">🗝️ Mediante API Key</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Claude (no ofrece OAuth)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>OpenRouter y la mayoría de los demás</span></li>
+</ul>
+</div>
+</div>
+<p class="text-sm text-neutral-500"><strong>Evita la frustración:</strong> no busques un botón de OAuth para Claude; simplemente no existe. Usa API key.</p>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">⚙️ configuración de homes: el flujo en la terminal</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">En la práctica, los dos métodos se encuentran en el comando <strong class="text-emerald-400">homes setup</strong>: eliges el provider y luego haces OAuth (reauthenticate) o pegas la API key.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Flujo ilustrativo</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">$ homes setup
+? Escolha o provider:  &gt; OpenRouter / OpenAI / xAI / Anthropic ...
+? Método:              &gt; OAuth (reauthenticate)  |  Colar API key
+# OAuth  -&gt; abre o navegador, login, Allow
+# API key -&gt; cola a string (ex.: de openrouter.ai/models)</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Cuando aparezca "reauthenticate", solo tienes que volver a hacer el OAuth: inicia sesión y vuelve a hacer clic en Allow. No hay ninguna clave que buscar.</p>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">⚖️ La analogía de la llave</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La imagen que lo deja todo claro: <strong class="text-emerald-400">OAuth es el botón que recuperas</strong> en cualquier momento; la <strong class="text-emerald-400">Una API key es una clave</strong> que debe guardarse y puede rotarse.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">🔘 OAuth = botón</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Nada que guardar</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tú "desactivas" el permiso cuando quieras</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Más conveniente</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-bold text-blue-400 mb-4">🗝️ API key = llave</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Hay que guardarla con cuidado</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Se puede rotar (la anterior deja de funcionar)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Más control, más responsabilidad</span></li>
+</ul>
+</div>
+</div>
+<p class="text-sm text-neutral-500"><strong>Resumen:</strong> conveniencia vs. control. Ambos funcionan; elige según lo que ofrezca el proveedor.</p>
+</section>
+<!-- TÓPICO 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🛡️ Errores de seguridad comunes</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Conectar modelos implica credenciales. Los errores más frecuentes tienen que ver con cómo guardas (o no) tu clave.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Hazlo</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Prefiere OAuth cuando el proveedor lo ofrezca</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Guarda la API key fuera del chat (Trilha 2/3)</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Rótala ante la menor señal de filtración</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Nunca</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Pegar la API key en el chat (todo se indexa)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Reutilizar la misma key en varios lugares sin control</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Buscar OAuth donde no existe (ej.: Claude)</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Resumen práctico (ilustrativo)</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">OAuth   = botão (login + Allow)   -&gt; revogável, nada para guardar
+API key = chave (sk-xxxx no server) -&gt; rotacionável, guarde fora do chat</pre>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">OAuth</strong><span class="text-neutral-400"> — inicio de sesión en el navegador + Allow; sin key; revocable.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">API key</strong><span class="text-neutral-400"> — cadena secreta en el servidor; acceso amplio a los modelos.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Rotación</strong><span class="text-neutral-400"> — al rotar, la clave antigua deja de funcionar.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Quién usa qué</strong><span class="text-neutral-400"> — Grok/ChatGPT: OAuth; Claude: solo API key.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">homes setup</strong><span class="text-neutral-400"> — elige el provider, OAuth o pega la key.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-emerald-400 mb-2">Próximo módulo:</h3>
+<p class="text-neutral-300">1.6 — Cómo elegir el modelo</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Volver a la ruta</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-6.html">Próximo módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Módulo 1.5 · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

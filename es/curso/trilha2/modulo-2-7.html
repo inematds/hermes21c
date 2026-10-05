@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 2.7 · 6 teclas de poder | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+<link href="https://inematds.github.io/hermes21c/curso/trilha2/modulo-2-7.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha2/modulo-2-7.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha2/modulo-2-7.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha2/modulo-2-7.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha2/modulo-2-7.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-2-7.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder y operación</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-blue-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-blue-400" href="index.html">Ruta 2</a><span>/</span>
+<span class="text-blue-400">Módulo 2.7</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.7</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">⌨️ 6 Teclas de poder</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">"Queue, background, compress." Los comandos que potencian el uso de Hermes y el concepto que lo conecta todo: la ventana de contexto. Domina estas teclas y usarás el agente como un usuario avanzado.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Interm.</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Práctica</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">📥 /queue — ponlo en cola sin interrumpir</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">/queue</strong> (tecla Q) pone un prompt en la cola para el <strong class="text-blue-400">próximo turno</strong>, sin interrumpir lo que el agente está haciendo ahora. Adelantas el siguiente paso mientras todavía trabaja en el actual: un flujo continuo, sin quedarte esperando.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Uso de /queue (ilustrativo)</h3>
+<pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">› hermes: gerando relatório… (em andamento)
+você: /queue "depois, manda por email pro time"
+› hermes: ok, enfileirado pro próximo turno.</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Cuándo usar</h3>
+<p class="text-neutral-300">Cuando ya sabes cuál es el siguiente paso y no quieres esperar a que termine el actual para escribirlo. Mantiene el ritmo de la sesión.</p>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🔀 /background — en paralelo en el mismo chat</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">/background</strong> ejecuta tareas en <strong class="text-blue-400">en paralelo en el mismo chat</strong>: varios flujos concurrentes al mismo tiempo. A diferencia de /queue (que es secuencial, "después"), /background es simultáneo ("al mismo tiempo").</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-blue-400 mb-3">📥 /queue</h4>
+<p class="text-neutral-300 text-sm">Secuencial. "Haz esto después de aquello." Uno a la vez, en orden.</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-blue-400 mb-3">🔀 /background</h4>
+<p class="text-neutral-300 text-sm">En paralelo. "Haz esto Y aquello al mismo tiempo." Varios flujos concurrentes.</p>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Ejemplo de paralelismo</h3>
+<p class="text-neutral-300">"<strong>/background</strong> investiga a la competencia Y resume mis correos Y redacta un borrador» — tres tareas ejecutándose juntas, sin abrir tres ventanas.</p>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🗂️ /canban y /reset</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Dos comandos de organización: <strong class="text-blue-400">/canban</strong> abre un tablero de tareas (visualiza lo que está en curso, pendiente y terminado); <strong class="text-blue-400">/reset</strong> borra todo y empieza desde cero. Empezar de nuevo con todo limpio es una de las palancas de rendimiento más subestimadas.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-blue-400 mb-3">🗂️ /canban</h4>
+<p class="text-neutral-300 text-sm">Tablero de tareas: organiza lo que está haciendo el agente en columnas, al estilo kanban.</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-blue-400 mb-3">🔄 /reset</h4>
+<p class="text-neutral-300 text-sm">Limpia todo: restablece el contexto de la sesión para volver a empezar de forma ligera y rápida.</p>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">¿Terminaste un tema? <strong>/reset</strong> antes del siguiente. Cargar contexto viejo de una tarea que ya terminó solo empeora el rendimiento y el costo de la próxima.</p>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🗜️ /compress — comprime el contexto</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">/compress</strong> comprime la memoria/contexto de la conversación: en la práctica, «resume todo lo que hablamos» — transforma una conversación larga en un resumen conciso y continúa desde ahí. Es como /reset, pero <strong class="text-blue-400">sin perder lo esencial</strong>.</p>
+<div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Una ventana de contexto llena pasa por el comando compress y se convierte en un contexto compacto, manteniendo el rendimiento" class="w-full h-auto" role="img" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="m27-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
+<filter height="180%" id="m27-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="2.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m27-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#3b82f6" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m27-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#60a5fa"></path></marker>
+</defs>
+<rect fill="url(#m27-grid)" height="200" width="1000" x="0" y="0"></rect>
+<rect fill="#0e1b26" height="120" rx="14" stroke="#38bdf8" stroke-width="2.4" width="240" x="50" y="40"></rect>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="170" y="34">contexto lleno</text>
+<g opacity="0.5" stroke="#38bdf8" stroke-width="6"><line x1="70" x2="270" y1="62" y2="62"></line><line x1="70" x2="270" y1="80" y2="80"></line><line x1="70" x2="270" y1="98" y2="98"></line><line x1="70" x2="270" y1="116" y2="116"></line><line x1="70" x2="270" y1="134" y2="134"></line></g>
+<path d="M300,100 L430,100" fill="none" marker-end="url(#m27-ah)" stroke="#60a5fa" stroke-width="2.4"></path>
+<rect fill="#0e1622" height="44" rx="11" stroke="url(#m27-grad)" stroke-width="2.4" width="150" x="430" y="78"></rect>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="505" y="105">/compress</text>
+<path d="M580,100 L710,100" fill="none" marker-end="url(#m27-ah)" stroke="#60a5fa" stroke-width="2.4"></path>
+<g filter="url(#m27-glow)"><rect fill="#0e1622" height="52" rx="13" stroke="#60a5fa" stroke-width="2.6" width="240" x="710" y="74"></rect></g>
+<text fill="#93c5fd" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="830" y="62">contexto ligero</text>
+<g opacity="0.7" stroke="#60a5fa" stroke-width="6"><line x1="730" x2="930" y1="100" y2="100"></line></g>
+</svg>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> /compress × /reset</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>/reset</strong> → borra todo (reinicio total)</li>
+<li><strong>/compress</strong> → resume y conserva lo esencial (reinicio ligero)</li>
+</ul>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🧠 /model — cambia el cerebro</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-blue-400">/model</strong> cambia el modelo que está pensando: el "cerebro" de Hermes. Es la base de la estrategia multi-brain (Trilha 1): usa el mejor modelo para cada tarea, sin depender de uno solo.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Cambio de modelo (ilustrativo)</h3>
+<pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">tú: /model opus-4-8     # razonamiento difícil
+tú: /model gpt          # volumen, usando tu suscripción
+tú: /model deepseek     # casi gratis</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Cambia de modelo según cambie la tarea dentro de la misma sesión: uno potente para planificar, uno barato para ejecutar el volumen. "Para un martillo, todo es un clavo."</p>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">🪟 La ventana de contexto — una sesión, una ventana</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El concepto que lo conecta todo: <strong class="text-blue-400">cada pregunta usa TODO el contexto + la pregunta.</strong> Cuanto mayor es el contexto, peor es el rendimiento y mayor el costo. Por eso lo ideal es <strong class="text-blue-400">"una sesión, una ventana"</strong>: enfócate en un tema y luego reinicia o comprime.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Abre una sesión por tema</h4>
+<p class="text-neutral-300 text-sm">Empieza desde cero, con un objetivo claro. Un contexto pequeño = mejores respuestas y más baratas.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Comprime cuando crezca</h4>
+<p class="text-neutral-300 text-sm">¿La sesión se alargó, pero sigue siendo útil? <code>/compress</code> resume y conserva lo esencial.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Restablece el contexto al cambiar de tema</h4>
+<p class="text-neutral-300 text-sm">¿Tema nuevo y sin relación? <code>/reset</code> y empieza otra ventana limpia.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Contexto inflado</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Una sesión eterna con 10 temas</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>El rendimiento cae con cada turno</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>El costo aumenta (se reenvía todo el contexto)</span></li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Ventana compacta</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Un tema por sesión</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>/compress cuando se vuelva grande</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>/reset al cambiar de tema</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por qué esto cierra la Trilha 2</h3>
+<p class="text-neutral-300">Las 6 teclas existen para gestionar la ventana de contexto: <strong>queue</strong> e <strong>background</strong> organizan el flujo, <strong>kanban</strong> visualiza, <strong>restablecer</strong> e <strong>compress</strong> controlan el tamaño, y <strong>model</strong> elige el cerebro. El presupuesto y los tokens se explican en profundidad en la Trilha 3.</p>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">/queue</strong><span class="text-neutral-400"> — pone en cola el siguiente prompt sin interrumpir el actual.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">/background</strong><span class="text-neutral-400"> — ejecuta tareas en paralelo en el mismo chat.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">/canban e /reset</strong><span class="text-neutral-400"> — tablero de tareas y limpieza total.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">/compress e /model</strong><span class="text-neutral-400"> — resume el contexto y cambia el cerebro.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Ventana de contexto</strong><span class="text-neutral-400"> — una sesión, una ventana: cuanto más grande, peor y más caro.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-blue-400 mb-2">Próxima ruta:</h3>
+<p class="text-neutral-300">Ruta 3 — Poder &amp; Operación: seguridad, goals, subagentes, heartbeat, budget y el operating system</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Volver a la ruta</a>
+<a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="../trilha3/index.html">Ruta 3: Poder &amp; Operación →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Módulo 2.7 · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

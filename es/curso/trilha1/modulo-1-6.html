@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 1.6 · Cómo elegir el modelo | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s} .wf-a:nth-child(4){animation-delay:.75s}
+    }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+<link href="https://inematds.github.io/hermes21c/curso/trilha1/modulo-1-6.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha1/modulo-1-6.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha1/modulo-1-6.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-6.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha1/modulo-1-6.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-1-6.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder y operación</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-emerald-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-emerald-400" href="index.html">Ruta 1</a><span>/</span>
+<span class="text-emerald-400">Módulo 1.6</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.6</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🎛️ Elegir el Modelo</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">Hermes es un framework agéntico; el «cerebro» es un modelo intercambiable con <code>/model</code>. La estrategia multi-brain: el mejor modelo para cada tarea. Para un martillo, todo es un clavo, así que varía la herramienta.</p>
+<!-- SVG: hub OpenRouter -> N modelos com rótulos de uso -->
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+<svg aria-label="OpenRouter es una conexión única que da acceso a varios modelos, cada uno recomendado para un tipo de tarea: razonamiento, volumen o casi gratis" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<lineargradient id="m16-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="m16-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="3"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m16-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m16-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m16-grid)" height="250" width="1000" x="0" y="0"></rect>
+<!-- hub -->
+<g filter="url(#m16-glow)"><rect fill="#0e2018" height="64" rx="14" stroke="url(#m16-grad)" stroke-width="2.6" width="180" x="40" y="95"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="17" font-weight="700" text-anchor="middle" x="130" y="123">🔌 OpenRouter</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="11.5" text-anchor="middle" x="130" y="143">1 conexión</text>
+<!-- fan-out -->
+<g fill="none" opacity="0.55" stroke="#38bdf8" stroke-width="2">
+<path d="M220,127 C320,127 350,46 450,46" marker-end="url(#m16-ahc)"></path>
+<path d="M220,127 C320,127 350,100 450,100" marker-end="url(#m16-ahc)"></path>
+<path d="M220,127 C320,127 350,154 450,154" marker-end="url(#m16-ahc)"></path>
+<path d="M220,127 C320,127 350,208 450,208" marker-end="url(#m16-ahc)"></path>
+</g>
+<g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+<g class="wf-a"><rect fill="#0e1b26" height="36" rx="9" stroke="#38bdf8" stroke-width="1.8" width="180" x="450" y="28"></rect><text fill="#bfe6ff" text-anchor="middle" x="540" y="51">Opus 4.7/4.8</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="36" rx="9" stroke="#38bdf8" stroke-width="1.8" width="180" x="450" y="82"></rect><text fill="#bfe6ff" text-anchor="middle" x="540" y="105">GPT</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="36" rx="9" stroke="#38bdf8" stroke-width="1.8" width="180" x="450" y="136"></rect><text fill="#bfe6ff" text-anchor="middle" x="540" y="159">Grok</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="36" rx="9" stroke="#38bdf8" stroke-width="1.8" width="180" x="450" y="190"></rect><text fill="#bfe6ff" text-anchor="middle" x="540" y="213">DeepSeek / free</text></g>
+</g>
+<!-- rótulos de uso -->
+<g font-family="Inter,sans-serif" font-size="12.5" font-weight="600">
+<text fill="#34d399" x="660" y="51">→ razonamiento</text>
+<text fill="#34d399" x="660" y="105">→ volumen (OAuth)</text>
+<text fill="#34d399" x="660" y="159">→ volumen + X/Twitter</text>
+<text fill="#34d399" x="660" y="213">→ casi gratis</text>
+</g>
+</svg>
+</div>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">22</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Práctico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧩 Framework vs. cerebro</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Hermes es el <strong class="text-emerald-400">framework agéntico</strong> (la estructura que actúa); el "cerebro" es un <strong class="text-emerald-400">modelo conectable</strong>. El comando <code>/model</code> cambia este cerebro sin tocar el resto.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Cambiar de cerebro (ilustrativo)</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">/model opus-4.8      ← raciocínio pesado
+/model gpt           ← volume geral
+/model deepseek      ← quase de graça</pre>
+</div>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🧬</span> Model-agnostic</h3>
+<p class="text-neutral-300">Como el framework no depende de un modelo específico, tienes libertad para usar el mejor cerebro para cada tarea. Esa separación es el corazón de la estrategia multi-brain.</p>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🧠 Para razonar: Opus con un límite</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Para un razonamiento complejo, usa <strong class="text-emerald-400">Opus 4.7/4.8 vía OpenRouter</strong>, con <strong class="text-emerald-400">límite de gasto</strong> (por ejemplo: US$10/mes y se detiene). Usa un modelo caro solo cuando valga la pena.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Cómo controlar el costo</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Define un límite mensual (ej.: <strong>US$10</strong>) — cuando lo alcance, se detiene</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Reserva Opus para tareas difíciles, no para todo</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Accede a través de OpenRouter para comparar costos fácilmente</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">El límite de gasto es tu red de seguridad. Sin él, un razonamiento intenso puede hacerte gastar dinero rápidamente (ver Trilha 3, módulo de budget).</p>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⚡ Para volumen: GPT y Grok</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Para tareas generales de alto volumen: usa <strong class="text-emerald-400">GPT</strong> (tu ChatGPT mediante OAuth aprovecha la suscripción de US$20) o <strong class="text-emerald-400">Grok</strong> (por ejemplo, con X conectado, busca en Twitter).</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">GPT vía OAuth</h4><p class="text-neutral-300 text-sm">Conecta tu ChatGPT y aprovecha la suscripción de US$20 que ya pagas.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Grok + X</h4><p class="text-neutral-300 text-sm">Bueno para volumen y, con X conectado, búsqueda directa en Twitter.</p></div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Usa lo que ya tienes contratado. Conectar ChatGPT mediante OAuth (módulo 1.5) convierte la suscripción existente en el «cerebro de alto volumen» de Hermes.</p>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🆓 Casi gratis: DeepSeek y free</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed"><strong class="text-emerald-400">DeepSeek y modelos free</strong> cuestan casi nada. El dato que importa: el <strong class="text-emerald-400">DeepSeek V4 flash</strong> entrega <strong class="text-emerald-400">~95% del rendimiento por ~1% del costo</strong>.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> El número que lo cambia todo</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>~95%</strong> del rendimiento de un modelo de última generación</li>
+<li><strong>~1%</strong> del costo</li>
+<li>Ideal para autopilot y tareas de fondo de gran volumen</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Usa un modelo económico en</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tareas en segundo plano, en volumen</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Autopilot y automatizaciones repetitivas</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cuando 95% ya es suficiente</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Evita en</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Razonamiento de alto impacto</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Decisiones críticas en las que importa un 5%</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tareas que requieren el mejor cerebro</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔌 OpenRouter: un centro, muchos modelos</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-emerald-400">OpenRouter</strong> es 1 conexión que da acceso a <strong class="text-emerald-400">cientos de modelos</strong>, con rankings de rendimiento y costo para comparar antes de elegir.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🗺️</span> Por qué centralizar</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Una clave/conexión para muchos modelos</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Los rankings ayudan a encontrar la mejor relación calidad-precio</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Cambiar de modelo (<code>/model</code>) se vuelve trivial</span></li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Dónde comparar</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto"># rankings de modelos (performance × custo)
+openrouter.ai/models</pre>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔨 "Para un martillo, todo es un clavo"</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Usar un solo modelo para todo es como tener un solo martillo: <strong class="text-emerald-400">todo se vuelve un clavo</strong>. La estrategia multi-brain consiste en variar la herramienta según la tarea.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">🧠</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Razonamiento difícil → Opus</h4><p class="text-neutral-300 text-sm">Con un límite de gasto, en lo que realmente importa.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">⚡</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Volumen general → GPT/Grok</h4><p class="text-neutral-300 text-sm">Aprovechando las suscripciones que ya tienes.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">🆓</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Tareas en segundo plano → DeepSeek/free</h4><p class="text-neutral-300 text-sm">~95% del rendimiento por ~1% del costo.</p></div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Piensa en Hermes como una caja de herramientas, no como un martillo. Cambiar de cerebro según la tarea es lo que da el mejor resultado al menor costo.</p>
+</div>
+</section>
+<!-- TÓPICO 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🧯 Errores comunes al elegir el modelo</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La mayoría de los costos desperdiciados se deben a usar el cerebro equivocado para la tarea. Mira qué hacer y qué evitar.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Hazlo</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Modelo costoso solo en tareas de alto impacto</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Define un límite de gasto en Opus</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Consulta rankings antes de elegir</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Evita</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar Opus para todo (cuesta mucho dinero)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar las suscripciones que ya pagas</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Fijarse en un único modelo (el "martillo")</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Guía de bolsillo (ilustrativo)</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">raciocínio difícil  -&gt; Opus 4.7/4.8  (teto US$10/mês)
+volume geral        -&gt; GPT (OAuth) / Grok (com X)
+tarefa de fundo     -&gt; DeepSeek V4 flash (~95% perf, ~1% custo)
+acesso a tudo       -&gt; OpenRouter (1 conexão, rankings)</pre>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Framework vs. cerebro</strong><span class="text-neutral-400"> — /model cambia el modelo, no lo demás.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Razonamiento</strong><span class="text-neutral-400"> — Opus 4.7/4.8 con límite de gasto.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Volumen</strong><span class="text-neutral-400"> — GPT (OAuth) y Grok (con X).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Casi gratis</strong><span class="text-neutral-400"> — DeepSeek V4 flash: ~95% por ~1% del costo.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Multi-brain</strong><span class="text-neutral-400"> — caja de herramientas, no martillo.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-emerald-400 mb-2">Próximo módulo:</h3>
+<p class="text-neutral-300">1.7 — Local y privado</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Volver a la ruta</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-7.html">Próximo módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Módulo 1.6 · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

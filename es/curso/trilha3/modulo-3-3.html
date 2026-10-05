@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.3 · Subagentes | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124,58,237,0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.2s} .wf-a:nth-child(3){animation-delay:.4s}
+      .wf-a:nth-child(4){animation-delay:.6s} .wf-a:nth-child(5){animation-delay:.8s}
+    }
+  </style>
+<link href="https://inematds.github.io/hermes21c/curso/trilha3/modulo-3-3.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha3/modulo-3-3.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha3/modulo-3-3.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-3.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-3.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-3.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span></a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder y operación</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div></div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-purple-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-purple-400" href="index.html">Ruta 3</a><span>/</span><span class="text-purple-400">Módulo 3.3</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 Subagentes · Equipo en paralelo</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">Un agente por sí solo es poderoso. Un <strong class="text-purple-400">equipo de agentes en paralelo</strong> es otra liga. Hermes puede iniciar varios subagentes, cada uno con contexto nuevo, delegar una parte a cada uno y reunirlo todo al final: hace en 1 h lo que llevaría 6 h.</p>
+<!-- HERO FAN-OUT -->
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+<svg aria-label="El Hermes orquestador activa varios subagentes en paralelo que convergen en un único informe" class="w-full h-auto" role="img" viewbox="0 0 1000 240">
+<defs>
+<lineargradient id="m33-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="180%" id="m33-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="3"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m33-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m33-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"></path></marker>
+<marker id="m33-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m33-grid)" height="240" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.65" stroke="#c084fc" stroke-width="2">
+<path d="M196,120 C300,120 320,38 452,38" marker-end="url(#m33-ah)"></path>
+<path d="M196,120 C300,120 320,79 452,79" marker-end="url(#m33-ah)"></path>
+<path d="M196,120 L452,120" marker-end="url(#m33-ah)"></path>
+<path d="M196,120 C300,120 320,161 452,161" marker-end="url(#m33-ah)"></path>
+<path d="M196,120 C300,120 320,202 452,202" marker-end="url(#m33-ah)"></path>
+</g>
+<g fill="none" opacity="0.55" stroke="#38bdf8" stroke-width="2">
+<path d="M588,38  C700,38 720,120 800,120" marker-end="url(#m33-ahc)"></path>
+<path d="M588,79  C700,79 720,120 800,120" marker-end="url(#m33-ahc)"></path>
+<path d="M588,120 L800,120" marker-end="url(#m33-ahc)"></path>
+<path d="M588,161 C700,161 720,120 800,120" marker-end="url(#m33-ahc)"></path>
+<path d="M588,202 C700,202 720,120 800,120" marker-end="url(#m33-ahc)"></path>
+</g>
+<g filter="url(#m33-glow)"><rect fill="#1a1230" height="64" rx="14" stroke="url(#m33-grad)" stroke-width="2.5" width="156" x="40" y="88"></rect></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="18" font-weight="700" text-anchor="middle" x="118" y="114">Hermes</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="118" y="134">orquestador</text>
+<g font-family="Inter,sans-serif" font-size="12.5" font-weight="600">
+<g class="wf-a"><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="136" x="452" y="22"></rect><text fill="#bfe6ff" text-anchor="middle" x="520" y="43">research de EE. UU.</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="136" x="452" y="63"></rect><text fill="#bfe6ff" text-anchor="middle" x="520" y="84">research internacional</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="136" x="452" y="104"></rect><text fill="#bfe6ff" text-anchor="middle" x="520" y="125">escritura</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="136" x="452" y="145"></rect><text fill="#bfe6ff" text-anchor="middle" x="520" y="166">diseño</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="136" x="452" y="186"></rect><text fill="#bfe6ff" text-anchor="middle" x="520" y="207">scheduler</text></g>
+</g>
+<g filter="url(#m33-glow)"><rect fill="#1a1230" height="64" rx="14" stroke="url(#m33-grad)" stroke-width="2.5" width="156" x="800" y="88"></rect></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="878" y="114">Informe</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11.5" text-anchor="middle" x="878" y="134">1h vs 6h</text>
+</svg>
+<p class="text-xs text-neutral-500 mt-2 text-center">Diagrama ilustrativo · un orquestador, un equipo en paralelo, un único resultado</p>
+</div>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avanzado</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Práctica</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🧑‍🤝‍🧑 Hermes como equipo</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">En lugar de hacerlo todo en un único hilo de razonamiento, Hermes puede convertirse en un <strong class="text-purple-400">orquestador</strong>: reparte el trabajo entre auxiliares, cada uno enfocado en una subtarea. Es la misma lógica que la de un gerente que distribuye tareas al equipo, en vez de hacerlo todo por su cuenta.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎼</span> Orquestador + ejecutores</h3>
+<p class="text-neutral-300 mb-4">El orquestador no hace el trabajo pesado: <strong>planifica, distribuye y reúne</strong>. Los subagentes se encargan de la ejecución. Las tareas grandes se vuelven viables cuando se convierten en varias pequeñas que se ejecutan al mismo tiempo.</p>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🧠 Contexto fresco por agente</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cada subagente nace con la <strong class="text-purple-400">ventana de contexto propia y limpia</strong>, dedicada solo a tu subtarea. Esto es importante: recuerda la Trilha 2: cuanto más lleno está el contexto, peor es el rendimiento. Darle a cada agente un contexto conciso significa mejores respuestas y menor costo.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por qué el contexto aislado es mejor</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>Enfoque</strong> — el agente no se distrae con el historial de otras tareas.</li>
+<li><strong>Costo</strong> — menos contexto = menos tokens por llamada.</li>
+<li><strong>Calidad</strong> — sin ruido, la respuesta es más precisa.</li>
+</ul>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">⚡ En paralelo, no en secuencia</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Aquí está el punto de inflexión. En un flujo secuencial, el agente realiza la tarea A, luego B y después C: la suma de los tiempos. En el <strong class="text-purple-400">en paralelo</strong>, de 4 a 6 agentes trabajan al mismo tiempo y entregan todo al final. En vez de 6 horas en fila, 1 hora en simultáneo.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Secuencial (lento)</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tarea A (1h) → B (1h) → C (1h)…</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tiempo total = suma de todas.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>6 tareas ≈ 6 horas.</span></li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ En paralelo (rápido)</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>A, B, C… todas al mismo tiempo.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tiempo total ≈ la tarea más larga.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>6 tareas ≈ 1 hora.</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">El paralelismo solo funciona cuando las tareas son <strong>independientes</strong>. Si el paso C depende del resultado de B, no se pueden ejecutar juntos; en ese caso, la secuencia es inevitable.</p>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🌎 Ejemplo: búsqueda de empleo</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El ejemplo clásico del material: <em>"investiga cuáles son las mejores empresas de IA para trabajar"</em>. Hermes se inicia <strong class="text-purple-400">2 subagentes</strong> — uno cubre EE. UU., otro el mercado internacional. Cada uno investiga en paralelo y, al final, ambos entregan los resultados al orquestador para que prepare el informe.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-purple-400 mb-3">Cómo el pedido se convierte en un equipo (ilustrativo)</h3>
+<div class="bg-dark-900 rounded-lg p-4 font-mono text-sm text-neutral-300 overflow-x-auto">
+<div class="text-neutral-500"># tú</div>
+<div>investiga las mejores empresas de IA para trabajar</div>
+<div class="text-neutral-500 mt-2"># Hermes orquesta</div>
+<div><span class="text-purple-400">→</span> subagente 1: enfoque en EE. UU.</div>
+<div><span class="text-purple-400">→</span> subagente 2: enfoque internacional</div>
+<div class="text-emerald-400 mt-2"># ambos devuelven → informe unificado</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🏭 12 instancias paralelas: el caso del cofundador</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El paralelismo no se limita a 2 o 3. El cofundador de Hermes ejecuta <strong class="text-purple-400">12 instancias paralelas todos los días</strong> para construir el propio Hermes: monitoreando issues, haciendo dogfooding y gestionando el kanban. Es una flota de agentes que trabaja como todo un equipo de ingeniería.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Monitorear issues</h4>
+<p class="text-neutral-300 text-sm">Los agentes hacen seguimiento de bugs y solicitudes reportadas, y clasifican lo que llega.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Dogfooding</h4>
+<p class="text-neutral-300 text-sm">Usar el propio producto para encontrar problemas antes que los usuarios.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Mover el kanban</h4>
+<p class="text-neutral-300 text-sm">Mover tareas, actualizar estados y mantener el flujo de trabajo en marcha.</p>
+</div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> El número que importa</h3>
+<p class="text-neutral-300"><strong>12 instancias</strong> ejecutándose en paralelo, todos los días. La paralelización no es un truco de demo: así es como operan realmente los usuarios avanzados.</p>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">🎭 Roles de los subagentes</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Como en un equipo real, cada agente puede tener un <strong class="text-purple-400">función</strong>: investigación, escritura, diseño, scheduler. Los roles claros evitan que dos agentes hagan lo mismo, y cada rol puede usar el <strong class="text-purple-400">modelo ideal</strong> (razonamiento costoso solo donde vale la pena; volumen con el modelo barato).</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">🔎 Investigación</div><p class="text-xs text-neutral-400">Recopila y cruza datos.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">✍️ Escritura</div><p class="text-xs text-neutral-400">Redacta el entregable.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">🎨 Diseño</div><p class="text-xs text-neutral-400">Formatea y presenta.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">⏰ Scheduler</div><p class="text-xs text-neutral-400">Coordina plazos.</p></div>
+</div>
+</section>
+<!-- TÓPICO 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">7</span>
+<h2 class="text-2xl font-bold">⚖️ Cuándo paralelizar (y cuándo no)</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Crear un equipo genera costos adicionales: cada subagente vuelve a pagar el ~73% fijo de la solicitud (módulo 3.5). Para una tarea pequeña, el orquestador + 5 agentes puede costar más de lo que vale. Paraleliza cuando el ahorro de tiempo justifique el costo extra.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Conviene paralelizar</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tareas independientes y prolongadas (investigación amplia).</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Recortes claros (región, tema, fuente).</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cuando 6h en cola se convierten en ~1h en simultáneo.</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ No vale</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tarea pequeña que un agente resuelve rápido.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Pasos dependientes (C necesita el resultado de B).</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cuando la sobrecarga de 6 agentes supera el beneficio.</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Antes de incorporar un equipo, pregúntate: "¿estas tareas pueden ejecutarse al mismo tiempo y el tiempo ahorrado compensa el overhead?" Si sí, paraleliza; si no, mantén un solo agente.</p>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Hermes como equipo</strong><span class="text-neutral-400"> - orquestador que planifica, distribuye y reúne.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Contexto fresco</strong><span class="text-neutral-400"> - cada subagente empieza desde cero y enfocado.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">En paralelo &gt; secuencial</strong><span class="text-neutral-400"> - 6h de trabajo se convierten en ~1h cuando las tareas son independientes.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Escala real</strong><span class="text-neutral-400"> - 12 instancias paralelas todos los días en el caso del cofundador.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Roles</strong><span class="text-neutral-400"> - investigación, escritura, diseño, scheduler — cada uno con su modelo.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-purple-400 mb-2">Próximo módulo:</h3>
+<p class="text-neutral-300">3.4 - 💓 Heartbeat / Cron: el latido que mantiene al agente activo y trabajando 24/7.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-2.html">← Módulo anterior</a>
+<a class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="modulo-3-4.html">Próximo módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Ruta 3 · Poder &amp; Operación · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.4 · Heartbeat / Cron | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124,58,237,0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+    @keyframes hb-pulse { 0%,100% { opacity:.5; transform: scale(1) } 50% { opacity:1; transform: scale(1.06) } }
+    @media (prefers-reduced-motion: no-preference) { .hb-core { transform-box: fill-box; transform-origin: center; animation: hb-pulse 1.8s ease-in-out infinite; } }
+  </style>
+<link href="https://inematds.github.io/hermes21c/curso/trilha3/modulo-3-4.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha3/modulo-3-4.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha3/modulo-3-4.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-4.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-4.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-4.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span></a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder y operación</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div></div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-purple-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-purple-400" href="index.html">Ruta 3</a><span>/</span><span class="text-purple-400">Módulo 3.4</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.4</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">💓 Heartbeat / Cron · Trabaja mientras duermes</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">Un chatbot solo existe cuando abres la app. Un agente con <strong class="text-purple-400">heartbeat</strong> está siempre activo: un pulso periódico lo mantiene despierto, recupera tareas bloqueadas y ejecuta rutinas por sí solo, como el briefing de las 8h que llega antes de que te despiertes.</p>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avanzado</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Práctica</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">💓 Qué es el heartbeat</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Heartbeat es un <strong class="text-purple-400">cron job</strong> (tarea periódica) que mantiene al agente despierto todo el tiempo, en vez de solo reaccionar cuando hablas. Es literalmente un latido: a cada intervalo, algo "pulsa" y verifica si hay trabajo por hacer. Es lo que transforma un chatbot reactivo en un agente que <strong class="text-purple-400">opera solo</strong>.</p>
+<!-- SVG: ciclo do heartbeat -->
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Ciclo del heartbeat: pulso, detección de zombi, recuperación de un agente nuevo y reintento, volviendo al pulso" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<lineargradient id="m34-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="200%" id="m34-glow" width="200%" x="-50%" y="-50%"><fegaussianblur result="b" stddeviation="3.5"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m34-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m34-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m34-grid)" height="250" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.6" stroke="#38bdf8" stroke-width="2">
+<path d="M218,125 L382,125" marker-end="url(#m34-ah)"></path>
+<path d="M540,125 L704,125" marker-end="url(#m34-ah)"></path>
+<path d="M860,160 C860,225 500,235 140,225 C90,222 80,170 80,150" marker-end="url(#m34-ah)"></path>
+</g>
+<g filter="url(#m34-glow)"><rect class="hb-core" fill="#1a1230" height="60" rx="13" stroke="url(#m34-grad)" stroke-width="2.5" width="178" x="40" y="95"></rect></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="129" y="120">💓 Pulso</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="129" y="140">ping periódico</text>
+<g><rect fill="#0e1b26" height="60" rx="13" stroke="#38bdf8" stroke-width="2" width="158" x="382" y="95"></rect></g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="461" y="120">¿Zombie?</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="461" y="140">detecta cuando se queda atascado</text>
+<g><rect fill="#0e1b26" height="60" rx="13" stroke="#38bdf8" stroke-width="2" width="158" x="704" y="95"></rect></g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" x="783" y="120">Reclaim + retry</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="783" y="140">agente nuevo</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="500" y="218">…y vuelve al pulso (24/7)</text>
+</svg>
+<p class="text-xs text-neutral-500 mt-2 text-center">Diagrama ilustrativo · el latido que nunca se detiene</p>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🧟 Zombie detection</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Un "zombie process" pasa inadvertido hasta que algo muere: una tarea que se bloqueó pero no avisa. El heartbeat lo resuelve con un subagente que hace <strong class="text-purple-400">ping cada pocos segundos</strong>. Si un proceso dejó de responder, se detecta, se reinicia y se vuelve a intentar la tarea, incluso recuperándose de alucinaciones.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🔧</span> Qué hace el ping</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>Detección de procesos zombie</strong> — encuentra procesos bloqueados que se quedarían detenidos para siempre.</li>
+<li><strong>Fresh agent reclaim</strong> — reemplaza al agente que dejó de funcionar por uno nuevo, con el contexto limpio.</li>
+<li><strong>Reintentos con recuperación</strong> — vuelve a intentarlo y corrige el rumbo cuando el agente alucinó.</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Es esta red de detección la que hace seguro dejar al agente funcionando sin que estés pendiente. Sin ella, una sola tarea bloqueada paralizaría toda la operación.</p>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">⏰ Cron / scheduled task</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Además de mantenerlo activo, el heartbeat permite <strong class="text-purple-400">programar acciones</strong> en un intervalo. El ejemplo mínimo del material: «recuérdame en 30 segundos que el cielo es azul». Hermes guarda la tarea y la ejecuta automáticamente cuando llega el momento; ni siquiera necesitas tener la aplicación abierta.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-purple-400 mb-3">Ejemplos de programación (ilustrativos)</h3>
+<div class="bg-dark-900 rounded-lg p-4 font-mono text-sm text-neutral-300 overflow-x-auto space-y-1">
+<div><span class="text-purple-400">/cron</span> recuérdame en 30s que el cielo es azul</div>
+<div><span class="text-purple-400">/cron</span> todos los días a las 8h: informe matutino</div>
+<div><span class="text-purple-400">/cron</span> cada viernes a las 17 h: resumen de la semana</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🌅 El resumen matutino de las 8h</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El caso de uso que hace brillar la función: todos los días a las 8h, Hermes revisa <strong class="text-purple-400">email + calendario + todo lo que sabe de ti</strong> (memoria) y entrega <strong class="text-purple-400">5 elementos relevantes</strong>. No es una lista sin filtrar: es curaduría. Cron + memoria + integraciones se convierten en un asistente proactivo.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Se activa a las 8h</h4>
+<p class="text-neutral-300 text-sm">El cron activa la tarea sin que tengas que pedirlo.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Explora las fuentes</h4>
+<p class="text-neutral-300 text-sm">Email, calendario y la memoria de lo que te importa.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-neutral-100 mb-2">Entrega 5 elementos seleccionados</h4>
+<p class="text-neutral-300 text-sm">Solo lo que merece tu atención — no toda la bandeja de entrada.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🌟 Hace que parezca vivo</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Con heartbeat, la relación se invierte: el agente <strong class="text-purple-400">viene hasta ti</strong>. Puedes pedirle «pregúntame cosas periódicamente, haz un check-in» y aparece de vez en cuando con preguntas y sugerencias. Deja de ser una herramienta que espera y se convierte en un socio con iniciativa.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Chatbot reactivo</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Solo existe cuando la abres.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nunca toma la iniciativa.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Se olvida de ti entre sesiones.</span></li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Agente con heartbeat</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Activo 24/7.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Hace un check-in proactivo.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Viene con sugerencias en el momento justo.</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">⚠️ Precauciones con las programaciones</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Heartbeat y los crons son poderosos, pero cada activación <strong class="text-purple-400">consume tokens</strong>. Demasiadas tareas programadas generan costos silenciosos y una avalancha de notificaciones. Esto se conecta directamente con el siguiente módulo (3.5, Budget): un cron olvidado puede gastar dinero mientras duermes.</p>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Atención</h3>
+<p class="text-neutral-300">Revisa periódicamente los cron activos. Una tarea programada que se ejecuta cada minuto, multiplicada por el ~73% de sobrecarga fija de cada request, se convierte en una factura desagradable.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Heartbeat</div><p class="text-xs text-neutral-400">Se mantiene activo 24/7.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Detección de procesos zombie</div><p class="text-xs text-neutral-400">Recupera tareas bloqueadas.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Cron</div><p class="text-xs text-neutral-400">Se activa por tiempo.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Costo</div><p class="text-xs text-neutral-400">Frecuencia a medida.</p></div>
+</div>
+</section>
+<!-- TÓPICO 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">7</span>
+<h2 class="text-2xl font-bold">🧰 Casos de uso de heartbeat</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Para fijar la idea, algunos patrones reales en los que el pulso brilla: todos combinan cron, memoria e integraciones que ya viste en las rutas anteriores.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 rounded-lg p-5 border border-dark-600"><div class="text-purple-400 font-semibold mb-1">🌅 Resumen diario</div><p class="text-sm text-neutral-400">8h: 5 elementos de correo electrónico + calendario.</p></div>
+<div class="bg-dark-800 rounded-lg p-5 border border-dark-600"><div class="text-purple-400 font-semibold mb-1">📊 Resumen semanal</div><p class="text-sm text-neutral-400">Viernes a las 17 h: lo que pasó durante la semana.</p></div>
+<div class="bg-dark-800 rounded-lg p-5 border border-dark-600"><div class="text-purple-400 font-semibold mb-1">⏰ Recordatorios</div><p class="text-sm text-neutral-400">"Recuérdamelo en 30s / mañana / cada 2.º lunes."</p></div>
+<div class="bg-dark-800 rounded-lg p-5 border border-dark-600"><div class="text-purple-400 font-semibold mb-1">🔍 Monitor de issues</div><p class="text-sm text-neutral-400">Revisa el repositorio y te avisa de las novedades.</p></div>
+<div class="bg-dark-800 rounded-lg p-5 border border-dark-600"><div class="text-purple-400 font-semibold mb-1">💬 Registro proactivo</div><p class="text-sm text-neutral-400">"Pregúntame cosas periódicamente."</p></div>
+<div class="bg-dark-800 rounded-lg p-5 border border-dark-600"><div class="text-purple-400 font-semibold mb-1">💾 Copia de seguridad automática</div><p class="text-sm text-neutral-400">Snapshot diario del OS en GitHub.</p></div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Empieza con <strong>uno</strong> cron simple (el briefing de las 8h) y obsérvalo durante una semana antes de añadir más. Así percibes el costo y el valor antes de llenar la agenda del agente.</p>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Heartbeat</strong><span class="text-neutral-400"> - cron que mantiene al agente activo 24/7.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Detección de procesos zombie</strong><span class="text-neutral-400"> - un ping cada pocos segundos detecta y recupera tareas atascadas.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Cron</strong><span class="text-neutral-400"> - programa acciones por intervalos, desde el recordatorio de 30s hasta el informe diario.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Briefing de las 8h</strong><span class="text-neutral-400"> - correo electrónico + calendario + memoria = 5 elementos seleccionados.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Costo</strong><span class="text-neutral-400"> - cada activación consume tokens; revisa los crons.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-purple-400 mb-2">Próximo módulo:</h3>
+<p class="text-neutral-300">3.5 - 💰 Budget &amp; Tokens: por qué el 73% de cada solicitud es sobrecarga fija y cómo reducir el costo.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-3.html">← Módulo anterior</a>
+<a class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="modulo-3-5.html">Próximo módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Ruta 3 · Poder &amp; Operación · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

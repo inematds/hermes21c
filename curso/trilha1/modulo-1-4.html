@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 1.4 · Onde o Hermes Vive | Hermes 21C</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 1.4 · Onde o Hermes Vive | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
       primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
 
@@ -57,293 +58,264 @@
     .dark .border-dark-600 { border-color: #374151; }
     .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
   </style>
-</head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
-          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
-          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder &amp; Operação</span></a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
-      <span class="text-emerald-400">Módulo 1.4</span>
-    </div>
-  </nav>
-
-  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏠 Onde o Hermes Vive</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl mb-8">Terminal, local ou VPS: as casas possíveis do Hermes. Cada uma tem um trade-off de custo, controle e segurança — e saber escolher é o que evita dor de cabeça (e conta alta) depois.</p>
-
-      <!-- SVG: 3 painéis Local / VPS / Nuvem -->
-      <div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
-        <svg viewBox="0 0 1000 250" class="w-full h-auto" role="img" aria-label="Três opções de hospedagem do Hermes: no seu PC local, numa VPS alugada ou na nuvem, cada uma com trade-offs de custo, controle e uptime">
-          <defs>
-            <linearGradient id="m14-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#10b981"/></linearGradient>
-            <filter id="m14-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <pattern id="m14-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#10b981" opacity="0.12"/></pattern>
-          </defs>
-          <rect x="0" y="0" width="1000" height="250" fill="url(#m14-grid)"/>
-          <!-- Local -->
-          <g filter="url(#m14-glow)"><rect x="40" y="40" width="270" height="170" rx="16" fill="#0e2018" stroke="url(#m14-grad)" stroke-width="2.5"/></g>
-          <text x="175" y="78" text-anchor="middle" fill="#34d399" font-family="Inter,sans-serif" font-weight="700" font-size="20">🖥️ Local (seu PC)</text>
-          <text x="175" y="112" text-anchor="middle" fill="#a7f3d0" font-family="Inter,sans-serif" font-size="13">grátis · fácil · seguro</text>
-          <text x="175" y="140" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">controle: ★★★</text>
-          <text x="175" y="162" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">custo: grátis</text>
-          <text x="175" y="184" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">uptime: PC ligado</text>
-          <!-- VPS -->
-          <g filter="url(#m14-glow)"><rect x="365" y="40" width="270" height="170" rx="16" fill="#0e1b26" stroke="#38bdf8" stroke-width="2.5"/></g>
-          <text x="500" y="78" text-anchor="middle" fill="#9ad6ff" font-family="Inter,sans-serif" font-weight="700" font-size="20">☁️ VPS (alugada)</text>
-          <text x="500" y="112" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13">paga mensal · proteja portas</text>
-          <text x="500" y="140" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">controle: ★★</text>
-          <text x="500" y="162" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">custo: $/mês</text>
-          <text x="500" y="184" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">uptime: 24/7</text>
-          <!-- Nuvem -->
-          <g filter="url(#m14-glow)"><rect x="690" y="40" width="270" height="170" rx="16" fill="#0e1b26" stroke="#38bdf8" stroke-width="2.5"/></g>
-          <text x="825" y="78" text-anchor="middle" fill="#9ad6ff" font-family="Inter,sans-serif" font-weight="700" font-size="20">🌐 Nuvem</text>
-          <text x="825" y="112" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13">gerenciada · menos controle</text>
-          <text x="825" y="140" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">controle: ★</text>
-          <text x="825" y="162" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">custo: $$/uso</text>
-          <text x="825" y="184" text-anchor="middle" fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12">uptime: alto</text>
-        </svg>
-      </div>
-
-      <div class="grid grid-cols-4 gap-4 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">22</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- TÓPICO 1 -->
-    <section id="topico-1" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📖 Os termos: terminal, local, VPS</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Antes de escolher a casa, três palavras. <strong class="text-emerald-400">Terminal</strong> é onde você digita comandos; <strong class="text-emerald-400">local</strong> é o seu próprio computador; <strong class="text-emerald-400">VPS</strong> é o computador de outra empresa que você aluga.</p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Terminal</div><div class="text-sm text-neutral-300">A "janela preta" de comandos</div></div>
-        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Local</div><div class="text-sm text-neutral-300">Sua própria máquina</div></div>
-        <div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">VPS</div><div class="text-sm text-neutral-300">Computador alugado, remoto</div></div>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
-        <p class="text-neutral-300">VPS = "Virtual Private Server". É como alugar um quarto numa casa que não é sua: cômodo, mas você precisa trancar a porta.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 2 -->
-    <section id="topico-2" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🖥️ No seu computador</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Rodar no seu PC é <strong class="text-emerald-400">grátis, fácil e seguro</strong>. Funciona enquanto o computador estiver ligado — por isso muita gente usa um <strong class="text-emerald-400">MacBook velho 24/7</strong> só para isso.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Vantagens do local</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Zero custo de hospedagem</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Controle total sobre seus dados</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Setup simples para começar</span></li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Limitações</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Só roda com o PC ligado</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Depende do seu hardware</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sua internet pode oscilar</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
-        <p class="text-neutral-300">A solução do "MacBook velho 24/7" é o melhor dos mundos para começar: uptime quase total e custo zero de hospedagem.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 3 -->
-    <section id="topico-3" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⌨️ Como instalar</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Há dois caminhos: colar o comando no terminal ou pedir ao Claude Code para instalar por você.</p>
-
-      <div class="space-y-6 mb-6">
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Abra o terminal</h4><p class="text-neutral-300 text-sm">No Mac: Cmd+Space → digite "terminal" → Enter.</p></div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Cole o comando de instalação</h4><p class="text-neutral-300 text-sm">Copie o comando oficial e cole. Ele baixa e configura o Hermes.</p></div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Ou peça ao Claude Code</h4><p class="text-neutral-300 text-sm">"Instale o Hermes para mim" — ele cuida do processo no terminal.</p></div>
-        </div>
-      </div>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-sm font-semibold text-neutral-400 mb-3">Exemplo ilustrativo no terminal</h3>
-        <pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto"># cole o comando de instalação (exemplo)
+<link href="https://inematds.github.io/hermes21c/curso/trilha1/modulo-1-4.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha1/modulo-1-4.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha1/modulo-1-4.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="modulo-1-4.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/curso/trilha1/modulo-1-4.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/curso/trilha1/modulo-1-4.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder &amp; Operação</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-emerald-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-emerald-400" href="index.html">Trilha 1</a><span>/</span>
+<span class="text-emerald-400">Módulo 1.4</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🏠 Onde o Hermes Vive</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">Terminal, local ou VPS: as casas possíveis do Hermes. Cada uma tem um trade-off de custo, controle e segurança — e saber escolher é o que evita dor de cabeça (e conta alta) depois.</p>
+<!-- SVG: 3 painéis Local / VPS / Nuvem -->
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+<svg aria-label="Três opções de hospedagem do Hermes: no seu PC local, numa VPS alugada ou na nuvem, cada uma com trade-offs de custo, controle e uptime" class="w-full h-auto" role="img" viewbox="0 0 1000 250">
+<defs>
+<lineargradient id="m14-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="m14-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="3"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m14-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+</defs>
+<rect fill="url(#m14-grid)" height="250" width="1000" x="0" y="0"></rect>
+<!-- Local -->
+<g filter="url(#m14-glow)"><rect fill="#0e2018" height="170" rx="16" stroke="url(#m14-grad)" stroke-width="2.5" width="270" x="40" y="40"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="20" font-weight="700" text-anchor="middle" x="175" y="78">🖥️ Local (seu PC)</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="175" y="112">grátis · fácil · seguro</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="175" y="140">controle: ★★★</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="175" y="162">custo: grátis</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="175" y="184">uptime: PC ligado</text>
+<!-- VPS -->
+<g filter="url(#m14-glow)"><rect fill="#0e1b26" height="170" rx="16" stroke="#38bdf8" stroke-width="2.5" width="270" x="365" y="40"></rect></g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="20" font-weight="700" text-anchor="middle" x="500" y="78">☁️ VPS (alugada)</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="500" y="112">paga mensal · proteja portas</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="500" y="140">controle: ★★</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="500" y="162">custo: $/mês</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="500" y="184">uptime: 24/7</text>
+<!-- Nuvem -->
+<g filter="url(#m14-glow)"><rect fill="#0e1b26" height="170" rx="16" stroke="#38bdf8" stroke-width="2.5" width="270" x="690" y="40"></rect></g>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="20" font-weight="700" text-anchor="middle" x="825" y="78">🌐 Nuvem</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="825" y="112">gerenciada · menos controle</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="825" y="140">controle: ★</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="825" y="162">custo: $$/uso</text>
+<text fill="#e5e7eb" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="825" y="184">uptime: alto</text>
+</svg>
+</div>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">22</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📖 Os termos: terminal, local, VPS</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Antes de escolher a casa, três palavras. <strong class="text-emerald-400">Terminal</strong> é onde você digita comandos; <strong class="text-emerald-400">local</strong> é o seu próprio computador; <strong class="text-emerald-400">VPS</strong> é o computador de outra empresa que você aluga.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Terminal</div><div class="text-sm text-neutral-300">A "janela preta" de comandos</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Local</div><div class="text-sm text-neutral-300">Sua própria máquina</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">VPS</div><div class="text-sm text-neutral-300">Computador alugado, remoto</div></div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">VPS = "Virtual Private Server". É como alugar um quarto numa casa que não é sua: cômodo, mas você precisa trancar a porta.</p>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🖥️ No seu computador</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Rodar no seu PC é <strong class="text-emerald-400">grátis, fácil e seguro</strong>. Funciona enquanto o computador estiver ligado — por isso muita gente usa um <strong class="text-emerald-400">MacBook velho 24/7</strong> só para isso.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Vantagens do local</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Zero custo de hospedagem</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Controle total sobre seus dados</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Setup simples para começar</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Limitações</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Só roda com o PC ligado</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Depende do seu hardware</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sua internet pode oscilar</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">A solução do "MacBook velho 24/7" é o melhor dos mundos para começar: uptime quase total e custo zero de hospedagem.</p>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⌨️ Como instalar</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Há dois caminhos: colar o comando no terminal ou pedir ao Claude Code para instalar por você.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Abra o terminal</h4><p class="text-neutral-300 text-sm">No Mac: Cmd+Space → digite "terminal" → Enter.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Cole o comando de instalação</h4><p class="text-neutral-300 text-sm">Copie o comando oficial e cole. Ele baixa e configura o Hermes.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Ou peça ao Claude Code</h4><p class="text-neutral-300 text-sm">"Instale o Hermes para mim" — ele cuida do processo no terminal.</p></div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Exemplo ilustrativo no terminal</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto"># cole o comando de instalação (exemplo)
 $ curl -fsSL https://get.hermes.example | sh
 # ...e siga as instruções na tela</pre>
-      </div>
-    </section>
-
-    <!-- TÓPICO 4 -->
-    <section id="topico-4" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">☁️ VPS: aluga, paga, protege</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Uma VPS roda no computador de outra empresa (hosting). Você <strong class="text-emerald-400">aluga, paga mensal</strong> e precisa <strong class="text-emerald-400">proteger as portas</strong> — caso contrário, há risco de ataque. É a opção para ter o Hermes 24/7 sem deixar seu PC aceso.</p>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que considerar numa VPS</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Custo mensal</strong> — você paga enquanto a usa</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Segurança</strong> — portas abertas são superfície de ataque</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Uptime</strong> — fica ligada 24/7 sem depender de você</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Caso de uso</strong> — ex.: alugar inferência rápida</span></li>
-        </ul>
-      </div>
-
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Erro comum</h3>
-        <p class="text-neutral-300">Subir uma VPS e deixar portas abertas sem proteção. Numa máquina exposta à internet, isso é convite para invasão. Trate segurança como parte do setup, não como "depois".</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 5 -->
-    <section id="topico-5" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔗 Cuidado com indicações</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Provedores de VPS costumam <strong class="text-emerald-400">pagar por indicação via links de afiliados</strong>. Nem toda recomendação que você vê é neutra — pode haver comissão por trás.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Escolha bem</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Compare preço, suporte e região</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Leia avaliações de fontes independentes</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Desconfie de "o único certo"</span></li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Não caia em</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Seguir só o link de afiliado mais empurrado</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar custos que aparecem depois</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Achar que recomendação = neutralidade</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 6 -->
-    <section id="topico-6" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🎚️ Controle na sua máquina</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Como roda na sua máquina, você pode pedir ao Hermes coisas como <strong class="text-emerald-400">"desligue o gateway"</strong> ou <strong class="text-emerald-400">"reinicie"</strong> — ele administra a própria infraestrutura, por linguagem natural.</p>
-
-      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🛠️</span> Auto-administração</h3>
-        <p class="text-neutral-300 mb-4">O agente consegue mexer no próprio ambiente porque tem acesso ao sistema onde vive:</p>
-        <ul class="space-y-2 text-neutral-300">
-          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>"desligue o gateway" — pausa o ponto de entrada</span></li>
-          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>"reinicie" — recomeça o serviço</span></li>
-          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>tudo em linguagem natural, sem decorar comandos</span></li>
-        </ul>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
-        <p class="text-neutral-300">Esse poder de auto-administração é ótimo, mas reforça a importância de segurança (Trilha 3): um agente que controla a infra precisa do menor acesso necessário.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 7 -->
-    <section id="topico-7" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🧭 Qual casa escolher</h2></div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Uma referência rápida para decidir entre local, VPS e nuvem conforme a sua prioridade.</p>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-neutral-400 mb-3">Tabela de decisão (ilustrativa)</h3>
-        <pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">prioridade         -&gt; escolha
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">☁️ VPS: aluga, paga, protege</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Uma VPS roda no computador de outra empresa (hosting). Você <strong class="text-emerald-400">aluga, paga mensal</strong> e precisa <strong class="text-emerald-400">proteger as portas</strong> — caso contrário, há risco de ataque. É a opção para ter o Hermes 24/7 sem deixar seu PC aceso.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que considerar numa VPS</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Custo mensal</strong> — você paga enquanto a usa</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Segurança</strong> — portas abertas são superfície de ataque</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Uptime</strong> — fica ligada 24/7 sem depender de você</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Caso de uso</strong> — ex.: alugar inferência rápida</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Erro comum</h3>
+<p class="text-neutral-300">Subir uma VPS e deixar portas abertas sem proteção. Numa máquina exposta à internet, isso é convite para invasão. Trate segurança como parte do setup, não como "depois".</p>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔗 Cuidado com indicações</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Provedores de VPS costumam <strong class="text-emerald-400">pagar por indicação via links de afiliados</strong>. Nem toda recomendação que você vê é neutra — pode haver comissão por trás.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Escolha bem</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Compare preço, suporte e região</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Leia avaliações de fontes independentes</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Desconfie de "o único certo"</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Não caia em</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Seguir só o link de afiliado mais empurrado</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar custos que aparecem depois</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Achar que recomendação = neutralidade</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🎚️ Controle na sua máquina</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Como roda na sua máquina, você pode pedir ao Hermes coisas como <strong class="text-emerald-400">"desligue o gateway"</strong> ou <strong class="text-emerald-400">"reinicie"</strong> — ele administra a própria infraestrutura, por linguagem natural.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🛠️</span> Auto-administração</h3>
+<p class="text-neutral-300 mb-4">O agente consegue mexer no próprio ambiente porque tem acesso ao sistema onde vive:</p>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>"desligue o gateway" — pausa o ponto de entrada</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>"reinicie" — recomeça o serviço</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>tudo em linguagem natural, sem decorar comandos</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">Esse poder de auto-administração é ótimo, mas reforça a importância de segurança (Trilha 3): um agente que controla a infra precisa do menor acesso necessário.</p>
+</div>
+</section>
+<!-- TÓPICO 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🧭 Qual casa escolher</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Uma referência rápida para decidir entre local, VPS e nuvem conforme a sua prioridade.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Tabela de decisão (ilustrativa)</h3>
+<pre class="font-mono text-sm text-emerald-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">prioridade         -&gt; escolha
 custo zero/começar -&gt; 🖥️ Local (PC, MacBook 24/7)
 ligado 24/7        -&gt; ☁️ VPS (paga mensal, proteja portas)
 não quero gerir    -&gt; 🌐 Nuvem (gerenciada, menos controle)</pre>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Boa prática</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Comece local, migre só quando precisar de 24/7</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Trate segurança como parte do setup da VPS</span></li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Erro comum</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Subir VPS cara antes de precisar</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deixar portas abertas sem proteção</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESUMO -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
-        <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Termos</strong><span class="text-neutral-400"> — terminal (comandos), local (seu PC), VPS (alugada).</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Local</strong><span class="text-neutral-400"> — grátis, fácil, seguro; roda com o PC ligado (MacBook 24/7).</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Instalar</strong><span class="text-neutral-400"> — colar comando no terminal ou pedir ao Claude Code.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">VPS</strong><span class="text-neutral-400"> — paga mensal, 24/7, mas proteja as portas.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Controle</strong><span class="text-neutral-400"> — na sua máquina, ele se auto-administra ("desligue o gateway").</span></div></div>
-        </div>
-        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">1.5 — OAuth vs API Key</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
-          <a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo Módulo →</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-      <p>Hermes 21C · Módulo 1.4 · INEMA.CLUB · 2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Boa prática</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Comece local, migre só quando precisar de 24/7</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Trate segurança como parte do setup da VPS</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Erro comum</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Subir VPS cara antes de precisar</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deixar portas abertas sem proteção</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Termos</strong><span class="text-neutral-400"> — terminal (comandos), local (seu PC), VPS (alugada).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Local</strong><span class="text-neutral-400"> — grátis, fácil, seguro; roda com o PC ligado (MacBook 24/7).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Instalar</strong><span class="text-neutral-400"> — colar comando no terminal ou pedir ao Claude Code.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">VPS</strong><span class="text-neutral-400"> — paga mensal, 24/7, mas proteja as portas.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Controle</strong><span class="text-neutral-400"> — na sua máquina, ele se auto-administra ("desligue o gateway").</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">1.5 — OAuth vs API Key</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-5.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Módulo 1.4 · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.6 · Sistema operativo | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124,58,237,0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.07); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+  </style>
+<link href="https://inematds.github.io/hermes21c/curso/trilha3/modulo-3-6.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha3/modulo-3-6.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha3/modulo-3-6.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-6.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-6.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-6.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span></a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder y operación</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div></div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-purple-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-purple-400" href="index.html">Ruta 3</a><span>/</span><span class="text-purple-400">Módulo 3.6</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.6</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🌐 Operating System · El sistema de todo</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">Hermes no es solo un chatbot: puede ser un <strong class="text-purple-400">operating system</strong> para tu IA. Personas en Pantheon, un memory vault que lo recuerda todo, mission control con gastos y uso en vivo, mejoras proactivas y backup diario. Un lugar para gestionarlo todo.</p>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avanzado</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Práctica</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">🌐 Más que un chatbot: el everything of AI</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Hasta aquí viste piezas sueltas: memoria, personas, modelos, goals y subagentes. El Operating System es lo que <strong class="text-purple-400">junta todo en un solo lugar</strong> — el "everything of AI". En vez de saltar entre apps, gestionas tu vida de IA desde un solo panel. Cambia la mentalidad de "app de chat" a "sistema".</p>
+<!-- MOCK DASHBOARD HTML -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-4 mb-6">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center space-x-2"><span class="w-3 h-3 rounded-full bg-red-400"></span><span class="w-3 h-3 rounded-full bg-yellow-400"></span><span class="w-3 h-3 rounded-full bg-emerald-400"></span><span class="ml-3 text-sm text-neutral-400 font-mono">hermes-os</span></div>
+<span class="text-xs text-neutral-500">recreación ilustrativa, no es una captura de pantalla real</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+<div class="bg-dark-900 rounded-lg p-4 border border-purple-500/30"><div class="text-xs text-neutral-500 mb-1">Conexiones</div><div class="text-purple-400 font-bold text-lg">14 activas</div><div class="text-xs text-neutral-400">Gmail · Granola · Drive…</div></div>
+<div class="bg-dark-900 rounded-lg p-4 border border-purple-500/30"><div class="text-xs text-neutral-500 mb-1">Modelo en uso</div><div class="text-purple-400 font-bold text-lg">Opus 4.8</div><div class="text-xs text-neutral-400">razonamiento</div></div>
+<div class="bg-dark-900 rounded-lg p-4 border border-purple-500/30"><div class="text-xs text-neutral-500 mb-1">Memoria</div><div class="text-purple-400 font-bold text-lg">2.310 notas</div><div class="text-xs text-neutral-400">MEMORY.md + SQLite</div></div>
+<div class="bg-dark-900 rounded-lg p-4 border border-blue-500/30"><div class="text-xs text-neutral-500 mb-1">Uso actual</div><div class="text-blue-400 font-bold text-lg">312k tokens</div><div class="text-xs text-neutral-400">US$ 0,84</div></div>
+<div class="bg-dark-900 rounded-lg p-4 border border-blue-500/30"><div class="text-xs text-neutral-500 mb-1">Goals activos</div><div class="text-blue-400 font-bold text-lg">2</div><div class="text-xs text-neutral-400">1 en progreso</div></div>
+<div class="bg-dark-900 rounded-lg p-4 border border-blue-500/30"><div class="text-xs text-neutral-500 mb-1">Pantheon</div><div class="text-blue-400 font-bold text-lg">5 personas</div><div class="text-xs text-neutral-400">Alquimista, Scout…</div></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🏛️ Panteón de personas</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-purple-400">Pantheon</strong> muestra tus personas de forma visual dentro del OS — cada una con su job, system prompt y modelo. Ver todo en un solo lugar facilita elegir quién usa qué y garantiza que no estés usando el modelo caro en una tarea trivial.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Qué aporta cada persona</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>Job</strong> — para qué sirve (investigación, escritura, soporte).</li>
+<li><strong>System prompt</strong> — cómo se comporta.</li>
+<li><strong>Modelo</strong> — el cerebro asignado (caro solo en las de alto impacto).</li>
+</ul>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🗄️ Memory vault</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-purple-400">memory vault</strong> es una bóveda que recupera cualquier correo electrónico, reunión o nota, y puedes conectar fuentes externas como NotebookLM. Es la memoria de la Trilha 2 elevada a un componente central del OS, accesible de un vistazo.</p>
+<!-- SVG: camadas de memória convergindo no OS -->
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Varias fuentes de conocimiento convergen en un vault de memoria central del sistema operativo" class="w-full h-auto" role="img" viewbox="0 0 1000 220">
+<defs>
+<lineargradient id="m36-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#c084fc"></stop><stop offset="1" stop-color="#a855f7"></stop></lineargradient>
+<filter height="180%" id="m36-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="3"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m36-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#a855f7" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m36-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m36-grid)" height="220" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.55" stroke="#38bdf8" stroke-width="2">
+<path d="M196,40 C420,40 520,90 700,110" marker-end="url(#m36-ahc)"></path>
+<path d="M196,85 C420,85 520,100 700,110" marker-end="url(#m36-ahc)"></path>
+<path d="M196,130 C420,130 520,120 700,110" marker-end="url(#m36-ahc)"></path>
+<path d="M196,175 C420,175 520,140 700,110" marker-end="url(#m36-ahc)"></path>
+</g>
+<g font-family="Inter,sans-serif" font-size="12.5" font-weight="600">
+<g><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="156" x="40" y="24"></rect><text fill="#bfe6ff" text-anchor="middle" x="118" y="45">Emails</text></g>
+<g><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="156" x="40" y="69"></rect><text fill="#bfe6ff" text-anchor="middle" x="118" y="90">Reuniones (Granola)</text></g>
+<g><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="156" x="40" y="114"></rect><text fill="#bfe6ff" text-anchor="middle" x="118" y="135">Notas / Obsidian</text></g>
+<g><rect fill="#0e1b26" height="32" rx="9" stroke="#38bdf8" stroke-width="2" width="156" x="40" y="159"></rect><text fill="#bfe6ff" text-anchor="middle" x="118" y="180">NotebookLM</text></g>
+</g>
+<g filter="url(#m36-glow)"><rect fill="#1a1230" height="64" rx="14" stroke="url(#m36-grad)" stroke-width="2.5" width="180" x="700" y="78"></rect></g>
+<text fill="#c084fc" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="790" y="104">Memory vault</text>
+<text fill="#e9d5ff" font-family="Inter,sans-serif" font-size="11.5" text-anchor="middle" x="790" y="124">recall universal</text>
+</svg>
+<p class="text-xs text-neutral-500 mt-2 text-center">Diagrama ilustrativo · fuentes conectables que convergen en una bóveda central</p>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">📈 Centro de control</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">No <strong class="text-purple-400">mission control</strong> ves de un vistazo las conexiones disponibles, el modelo en uso, la memoria, el gasto en IA, las mejoras con skills y el uso en tiempo real. Operar sin panel es volar a ciegas, especialmente después de lo que aprendiste sobre costos en el módulo 3.5.</p>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Las métricas en vivo del mission control son tu primera línea de defensa contra un cron descontrolado: si el gasto se dispara, lo ves de inmediato.</p>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">💭 Mejoras con Dreaming</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El OS no es estático: <strong class="text-purple-400">"sueña" con mejoras por la noche</strong> y vuelve al día siguiente con sugerencias proactivas. Combinado con heartbeat y memoria, el sistema evoluciona por sí solo: propone nuevos crons, ajustes de persona, optimizaciones de costo.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Qué genera el «sueño»</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sugerencias de automatización que repiten tu patrón.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Ajustes de personalidad según tu uso.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Ideas para ahorrar tokens.</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Qué no debe hacer por su cuenta</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ejecutar acciones irreversibles sin aprobación (vuelve al 3.1).</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Activar nuevos poderes sin que tú lo confirmes.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Gastar por encima del límite definido.</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">💾 Copia de seguridad en GitHub</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Tu OS es demasiado valioso para que desaparezca con el hardware. Conéctalo a <strong class="text-purple-400">GitHub</strong> para un backup diario de todo Hermes: personas, memoria, configuraciones. ¿Cambiaste de PC o perdiste el equipo? Restaura todo. (Cuidado: como se vio en el 3.1, esto refuerza por qué los secretos nunca pueden estar en el chat: quedarían en el backup.)</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-purple-400 mb-3">Flujo de respaldo (ilustrativo)</h3>
+<div class="bg-dark-900 rounded-lg p-4 font-mono text-sm text-neutral-300 overflow-x-auto space-y-1">
+<div class="text-neutral-500"># cron diario</div>
+<div><span class="text-purple-400">→</span> snapshot del OS (personas, memoria, configs)</div>
+<div><span class="text-purple-400">→</span> commit + push a un repositorio privado</div>
+<div class="text-emerald-400"># ¿perdiste la PC? restáurala desde GitHub ✓</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Everything of AI</div><p class="text-xs text-neutral-400">Todo en un hub.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Pantheon</div><p class="text-xs text-neutral-400">Personas visuales.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Mission control</div><p class="text-xs text-neutral-400">Métricas en vivo.</p></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-purple-400 font-semibold text-sm mb-1">Copia de seguridad</div><p class="text-xs text-neutral-400">GitHub diario.</p></div>
+</div>
+</section>
+<!-- TÓPICO 7 -->
+<section class="mb-16" id="topico-7">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">7</span>
+<h2 class="text-2xl font-bold">🏗️ Construye tu OS, paso a paso</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El OS no viene listo: lo construyes por capas. Un orden que funciona bien, de la base a la cima:</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Base: soul + memoria</h4><p class="text-neutral-300 text-sm">Dale una identidad al agente y deja que la memoria se componga durante ~2 semanas.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Conexiones con menor acceso</h4><p class="text-neutral-300 text-sm">Activa 2-3 integraciones en modo de lectura primero (módulo 3.1).</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Automatización + límite</h4><p class="text-neutral-300 text-sm">Un cron de informes y un límite de gasto. Observa el mission control.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-neutral-100 mb-2">Copia de seguridad + Claude Code</h4><p class="text-neutral-300 text-sm">Activa la copia de seguridad en GitHub y conecta Claude Code (módulo 3.7).</p></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Construir bien</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Capa por capa, observando cada una.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Respaldo activado antes de depender del OS.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Límite de gasto desde el primer cron.</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Errores comunes</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Activar todo el primer día, sin observar.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Confiar en el OS sin tener un backup configurado.</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Demasiados crons antes de entender el costo.</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Trata el OS como una casa: los cimientos (soul + memoria) antes que las paredes (conexiones), y el sistema de alarma (backup + límite) antes de mudarte.</p>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Everything of AI</strong><span class="text-neutral-400"> - el sistema operativo reúne personas, memoria, modelos, metas y métricas en un hub.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Pantheon</strong><span class="text-neutral-400"> - personas visuales, cada una con su tarea, prompt y modelo.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Memory vault</strong><span class="text-neutral-400"> - búsqueda en cualquier fuente; conecta NotebookLM.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Mission control</strong><span class="text-neutral-400"> - gasto, uso y conexiones en vivo; mejoras soñadas por la noche.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-neutral-100">Respaldo en GitHub</strong><span class="text-neutral-400"> - snapshot diario; restaura todo Hermes.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-purple-400 mb-2">Próximo módulo:</h3>
+<p class="text-neutral-300">3.7 - 🔗 One Brain: conectar Hermes y Claude Code en un solo cerebro — el cierre de los 21 conceptos.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-5.html">← Módulo anterior</a>
+<a class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="modulo-3-7.html">Próximo módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Ruta 3 · Poder &amp; Operación · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

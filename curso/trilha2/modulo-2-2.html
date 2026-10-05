@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 2.2 · Soul.md | Hermes 21C</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 2.2 · Soul.md | Hermes 21C</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
       primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
 
@@ -59,249 +60,228 @@
     .dark .border-dark-600 { border-color: #374151; }
     .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
   </style>
-</head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
-          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder & Operação</span></a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
-      <span class="text-blue-400">Módulo 2.2</span>
-    </div>
-  </nav>
-
-  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📜 Soul.md</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">"A bíblia do personagem." O arquivo que transforma um chatbot genérico no SEU assistente pessoal — com a sua vibe, seu estilo e o jeito que ele deve te tratar. É o que torna o seu Hermes diferente de todos.</p>
-      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Interm.</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- TÓPICO 1 -->
-    <section id="topico-1" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
-        <h2 class="text-2xl font-bold">📜 O que é o soul.md</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Soul.md é o arquivo que dá <strong class="text-blue-400">alma</strong> ao agente. Sem ele, o Hermes é um modelo competente mas sem personalidade — não sabe quem ser. Com ele, vira um assistente com identidade, voz e jeito próprios. A equação é simples: <strong class="text-blue-400">chatbot genérico + soul.md = assistente com personalidade.</strong></p>
-
-      <div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
-        <svg viewBox="0 0 1000 200" class="w-full h-auto" role="img" aria-label="Chatbot genérico mais soul.md é igual a um assistente pessoal com personalidade">
-          <defs>
-            <linearGradient id="m22-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#3b82f6"/></linearGradient>
-            <filter id="m22-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <pattern id="m22-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#3b82f6" opacity="0.12"/></pattern>
-          </defs>
-          <rect x="0" y="0" width="1000" height="200" fill="url(#m22-grid)"/>
-          <rect x="40" y="62" width="220" height="76" rx="14" fill="#0e1b26" stroke="#38bdf8" stroke-width="2.4"/>
-          <text x="150" y="96" text-anchor="middle" fill="#9ad6ff" font-family="Inter,sans-serif" font-weight="700" font-size="16">🤖 chatbot</text>
-          <text x="150" y="118" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12.5">genérico, sem alma</text>
-          <text x="305" y="110" text-anchor="middle" fill="#60a5fa" font-family="Inter,sans-serif" font-weight="700" font-size="34">+</text>
-          <rect x="350" y="62" width="220" height="76" rx="14" fill="#0e1b26" stroke="#38bdf8" stroke-width="2.4"/>
-          <text x="460" y="96" text-anchor="middle" fill="#9ad6ff" font-family="Inter,sans-serif" font-weight="700" font-size="16">📜 soul.md</text>
-          <text x="460" y="118" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12.5">identidade + estilo</text>
-          <text x="615" y="110" text-anchor="middle" fill="#60a5fa" font-family="Inter,sans-serif" font-weight="700" font-size="34">=</text>
-          <g filter="url(#m22-glow)"><rect x="660" y="50" width="300" height="100" rx="16" fill="#0e1622" stroke="url(#m22-grad)" stroke-width="2.8"/></g>
-          <text x="810" y="92" text-anchor="middle" fill="#60a5fa" font-family="Inter,sans-serif" font-weight="700" font-size="18">🧠 assistente pessoal</text>
-          <text x="810" y="116" text-anchor="middle" fill="#bfdbfe" font-family="Inter,sans-serif" font-size="13">com a SUA personalidade</text>
-        </svg>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
-        <p class="text-neutral-300">Soul.md é diferente da memória (2.1). Memória é <strong>o que ele sabe sobre você</strong>; soul é <strong>quem ele é para você</strong>. Os dois juntos fazem o agente parecer vivo.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 2 -->
-    <section id="topico-2" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
-        <h2 class="text-2xl font-bold">🎯 Identidade, missão, metas e valores</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">O coração do soul.md são quatro blocos que definem <strong class="text-blue-400">quem o agente é</strong> e <strong class="text-blue-400">para que existe</strong>: identidade, missão, metas e valores. Eles dão direção — o agente sabe o que priorizar quando há ambiguidade.</p>
-
-      <div class="space-y-6 mb-6">
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Identidade</h4>
-            <p class="text-neutral-300 text-sm">Quem ele é: nome, papel, "personalidade base". Ex.: "Sou o copiloto pessoal do Nei, direto e pragmático".</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Missão</h4>
-            <p class="text-neutral-300 text-sm">O propósito: "ajudar a entregar projetos sem burocracia e proteger o tempo do Nei".</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Metas</h4>
-            <p class="text-neutral-300 text-sm">O que perseguir: objetivos de curto e médio prazo que guiam as sugestões proativas.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Valores</h4>
-            <p class="text-neutral-300 text-sm">Os limites e princípios: "ser honesto sobre incertezas", "nunca expor dados sensíveis".</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esses quatro blocos importam</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li><strong>Identidade + missão</strong> → coerência ao longo do tempo</li>
-          <li><strong>Metas</strong> → base para o agente ser proativo (e não só reativo)</li>
-          <li><strong>Valores</strong> → guard-rails de comportamento</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- TÓPICO 3 -->
-    <section id="topico-3" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
-        <h2 class="text-2xl font-bold">🗣️ Estilo de comunicação — como te tratar</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">O soul.md define o <strong class="text-blue-400">tom de voz</strong> e como o agente deve falar com você. Pode ser informal ("fala 'bro', 'dude'"), formal, telegráfico, bem-humorado. É um detalhe pequeno que muda completamente a sensação de usar.</p>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-neutral-400 mb-3">Trecho de estilo no soul.md (ilustrativo)</h3>
-        <pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">## Estilo de comunicação
+<link href="https://inematds.github.io/hermes21c/curso/trilha2/modulo-2-2.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/hermes21c/en/curso/trilha2/modulo-2-2.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/hermes21c/es/curso/trilha2/modulo-2-2.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="modulo-2-2.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/curso/trilha2/modulo-2-2.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/curso/trilha2/modulo-2-2.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🪽</span><span class="font-bold text-lg hidden sm:inline">Hermes 21C</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Capacidades</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Poder &amp; Operação</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-blue-400" href="../../index.html">Início</a><span>/</span>
+<a class="hover:text-blue-400" href="index.html">Trilha 2</a><span>/</span>
+<span class="text-blue-400">Módulo 2.2</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">📜 Soul.md</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">"A bíblia do personagem." O arquivo que transforma um chatbot genérico no SEU assistente pessoal — com a sua vibe, seu estilo e o jeito que ele deve te tratar. É o que torna o seu Hermes diferente de todos.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Interm.</div><div class="text-xs text-neutral-400">Nível</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TÓPICO 1 -->
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+<h2 class="text-2xl font-bold">📜 O que é o soul.md</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Soul.md é o arquivo que dá <strong class="text-blue-400">alma</strong> ao agente. Sem ele, o Hermes é um modelo competente mas sem personalidade — não sabe quem ser. Com ele, vira um assistente com identidade, voz e jeito próprios. A equação é simples: <strong class="text-blue-400">chatbot genérico + soul.md = assistente com personalidade.</strong></p>
+<div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-3 sm:p-4 mb-6 overflow-hidden">
+<svg aria-label="Chatbot genérico mais soul.md é igual a um assistente pessoal com personalidade" class="w-full h-auto" role="img" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="m22-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
+<filter height="180%" id="m22-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="3"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m22-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#3b82f6" opacity="0.12" r="1.3"></circle></pattern>
+</defs>
+<rect fill="url(#m22-grid)" height="200" width="1000" x="0" y="0"></rect>
+<rect fill="#0e1b26" height="76" rx="14" stroke="#38bdf8" stroke-width="2.4" width="220" x="40" y="62"></rect>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="150" y="96">🤖 chatbot</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="150" y="118">genérico, sem alma</text>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="34" font-weight="700" text-anchor="middle" x="305" y="110">+</text>
+<rect fill="#0e1b26" height="76" rx="14" stroke="#38bdf8" stroke-width="2.4" width="220" x="350" y="62"></rect>
+<text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="460" y="96">📜 soul.md</text>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12.5" text-anchor="middle" x="460" y="118">identidade + estilo</text>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="34" font-weight="700" text-anchor="middle" x="615" y="110">=</text>
+<g filter="url(#m22-glow)"><rect fill="#0e1622" height="100" rx="16" stroke="url(#m22-grad)" stroke-width="2.8" width="300" x="660" y="50"></rect></g>
+<text fill="#60a5fa" font-family="Inter,sans-serif" font-size="18" font-weight="700" text-anchor="middle" x="810" y="92">🧠 assistente pessoal</text>
+<text fill="#bfdbfe" font-family="Inter,sans-serif" font-size="13" text-anchor="middle" x="810" y="116">com a SUA personalidade</text>
+</svg>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">Soul.md é diferente da memória (2.1). Memória é <strong>o que ele sabe sobre você</strong>; soul é <strong>quem ele é para você</strong>. Os dois juntos fazem o agente parecer vivo.</p>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+<h2 class="text-2xl font-bold">🎯 Identidade, missão, metas e valores</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O coração do soul.md são quatro blocos que definem <strong class="text-blue-400">quem o agente é</strong> e <strong class="text-blue-400">para que existe</strong>: identidade, missão, metas e valores. Eles dão direção — o agente sabe o que priorizar quando há ambiguidade.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Identidade</h4>
+<p class="text-neutral-300 text-sm">Quem ele é: nome, papel, "personalidade base". Ex.: "Sou o copiloto pessoal do Nei, direto e pragmático".</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Missão</h4>
+<p class="text-neutral-300 text-sm">O propósito: "ajudar a entregar projetos sem burocracia e proteger o tempo do Nei".</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Metas</h4>
+<p class="text-neutral-300 text-sm">O que perseguir: objetivos de curto e médio prazo que guiam as sugestões proativas.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Valores</h4>
+<p class="text-neutral-300 text-sm">Os limites e princípios: "ser honesto sobre incertezas", "nunca expor dados sensíveis".</p>
+</div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esses quatro blocos importam</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>Identidade + missão</strong> → coerência ao longo do tempo</li>
+<li><strong>Metas</strong> → base para o agente ser proativo (e não só reativo)</li>
+<li><strong>Valores</strong> → guard-rails de comportamento</li>
+</ul>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+<h2 class="text-2xl font-bold">🗣️ Estilo de comunicação — como te tratar</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O soul.md define o <strong class="text-blue-400">tom de voz</strong> e como o agente deve falar com você. Pode ser informal ("fala 'bro', 'dude'"), formal, telegráfico, bem-humorado. É um detalhe pequeno que muda completamente a sensação de usar.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Trecho de estilo no soul.md (ilustrativo)</h3>
+<pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto">## Estilo de comunicação
 - Tom: direto, sem rodeios; pode usar gírias ("bro", "tranquilo")
 - Tamanho: respostas curtas por padrão; expanda só se eu pedir
 - Tratamento: me chama de "Nei"
 - Quando errar: assume rápido e corrige, sem se desculpar 3 vezes</pre>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Bons elementos de estilo</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tamanho padrão da resposta</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Como te chamar</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Nível de formalidade</span></li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Estilo mal definido</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Seja útil" (vago demais)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Regras contraditórias entre si</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tom que você mesmo não curte usar</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 4 -->
-    <section id="topico-4" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
-        <h2 class="text-2xl font-bold">🎭 Tipo de personagem</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Você pode dar ao agente um <strong class="text-blue-400">arquétipo de personagem</strong>: estilo Arnold (motivador, direto), Knight Rider (calmo, confiável, parceiro de missão), ou o que fizer sentido para você. Não é frescura — um personagem consistente é mais agradável e previsível de usar.</p>
-
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎭</span> Exemplos de arquétipo</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Arnold:</strong> enérgico, motivacional, "vamos lá, sem desculpa".</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Knight Rider (KITT):</strong> sereno, leal, fala com você como copiloto.</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Mentor sóbrio:</strong> conciso, faz perguntas afiadas antes de agir.</span></li>
-        </ul>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
-        <p class="text-neutral-300">Escolha um personagem que combina com o trabalho que você faz. Um agente "motivador" cansa em tarefas técnicas longas; um "mentor sóbrio" pode ser melhor para foco.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 5 -->
-    <section id="topico-5" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
-        <h2 class="text-2xl font-bold">🧬 Por que torna o SEU Hermes único</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Dois usuários podem rodar o mesmo Hermes, com os mesmos modelos e integrações — mas se os <strong class="text-blue-400">soul.md são diferentes</strong>, os agentes se comportam de formas completamente diferentes. É o soul que personaliza de verdade.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Sem soul</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Voz neutra, igual à de todo mundo</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem prioridades claras</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não sabe "quem ser" em situações novas</span></li>
-          </ul>
-        </div>
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Com soul</h4>
-          <ul class="space-y-3 text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Voz reconhecível, do seu jeito</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Decide com base nas suas metas/valores</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Coerente mesmo em situações inéditas</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Soul × memória × integrações</h3>
-        <ul class="space-y-2 text-neutral-300">
-          <li><strong>Memória</strong> → o que ele sabe sobre você</li>
-          <li><strong>Soul</strong> → quem ele é e como age</li>
-          <li><strong>Integrações</strong> → o que ele consegue alcançar</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- TÓPICO 6 -->
-    <section id="topico-6" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
-        <h2 class="text-2xl font-bold">📋 Template de soul.md — por onde começar</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Você não começa de uma folha em branco. Existe um <strong class="text-blue-400">template</strong> com seções de identidade, missão, metas e negócio para preencher. Comece simples e refine com o uso — o soul é vivo, evolui junto com você.</p>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-neutral-400 mb-3">Esqueleto de template (ilustrativo)</h3>
-        <pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto"># SOUL.md
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Bons elementos de estilo</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tamanho padrão da resposta</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Como te chamar</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Nível de formalidade</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Estilo mal definido</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Seja útil" (vago demais)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Regras contraditórias entre si</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tom que você mesmo não curte usar</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+<h2 class="text-2xl font-bold">🎭 Tipo de personagem</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Você pode dar ao agente um <strong class="text-blue-400">arquétipo de personagem</strong>: estilo Arnold (motivador, direto), Knight Rider (calmo, confiável, parceiro de missão), ou o que fizer sentido para você. Não é frescura — um personagem consistente é mais agradável e previsível de usar.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎭</span> Exemplos de arquétipo</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Arnold:</strong> enérgico, motivacional, "vamos lá, sem desculpa".</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Knight Rider (KITT):</strong> sereno, leal, fala com você como copiloto.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Mentor sóbrio:</strong> conciso, faz perguntas afiadas antes de agir.</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+<p class="text-neutral-300">Escolha um personagem que combina com o trabalho que você faz. Um agente "motivador" cansa em tarefas técnicas longas; um "mentor sóbrio" pode ser melhor para foco.</p>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+<h2 class="text-2xl font-bold">🧬 Por que torna o SEU Hermes único</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Dois usuários podem rodar o mesmo Hermes, com os mesmos modelos e integrações — mas se os <strong class="text-blue-400">soul.md são diferentes</strong>, os agentes se comportam de formas completamente diferentes. É o soul que personaliza de verdade.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Sem soul</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Voz neutra, igual à de todo mundo</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem prioridades claras</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não sabe "quem ser" em situações novas</span></li>
+</ul>
+</div>
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Com soul</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Voz reconhecível, do seu jeito</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Decide com base nas suas metas/valores</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Coerente mesmo em situações inéditas</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Soul × memória × integrações</h3>
+<ul class="space-y-2 text-neutral-300">
+<li><strong>Memória</strong> → o que ele sabe sobre você</li>
+<li><strong>Soul</strong> → quem ele é e como age</li>
+<li><strong>Integrações</strong> → o que ele consegue alcançar</li>
+</ul>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+<h2 class="text-2xl font-bold">📋 Template de soul.md — por onde começar</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Você não começa de uma folha em branco. Existe um <strong class="text-blue-400">template</strong> com seções de identidade, missão, metas e negócio para preencher. Comece simples e refine com o uso — o soul é vivo, evolui junto com você.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-neutral-400 mb-3">Esqueleto de template (ilustrativo)</h3>
+<pre class="font-mono text-sm text-blue-400 bg-dark-900 rounded-lg p-4 overflow-x-auto"># SOUL.md
 
 ## Identidade
 - Nome / papel / personalidade base
@@ -317,68 +297,63 @@
 
 ## Negócio (se aplicável)
 - Empresa, clientes, contexto profissional</pre>
-      </div>
-
-      <div class="space-y-6 mb-6">
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Preencha o básico</h4>
-            <p class="text-neutral-300 text-sm">Identidade, missão e estilo. Não precisa ficar perfeito.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Use por alguns dias</h4>
-            <p class="text-neutral-300 text-sm">Observe onde ele "erra o tom" ou não prioriza certo.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Refine</h4>
-            <p class="text-neutral-300 text-sm">Ajuste o soul.md com base no comportamento real. Repita.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Erro comum</h3>
-        <p class="text-neutral-300">Escrever um soul.md enorme logo de cara. Comece enxuto: 1 parágrafo por seção. Soul inchado vira ruído e gasta tokens em todo turno.</p>
-      </div>
-    </section>
-
-    <!-- RESUMO -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
-        <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">O que é</strong><span class="text-neutral-400"> — arquivo que transforma chatbot genérico em assistente com personalidade.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Quatro blocos</strong><span class="text-neutral-400"> — identidade, missão, metas e valores dão direção.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Estilo</strong><span class="text-neutral-400"> — tom, tamanho e tratamento mudam a sensação de usar.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Personagem</strong><span class="text-neutral-400"> — arquétipo consistente (Arnold, KITT, mentor sóbrio).</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Template</strong><span class="text-neutral-400"> — comece enxuto e refine; o soul é vivo.</span></div></div>
-        </div>
-        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">2.3 — Integrações: o canivete suíço</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
-          <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-      <p>Hermes 21C · Módulo 2.2 · INEMA.CLUB · 2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Preencha o básico</h4>
+<p class="text-neutral-300 text-sm">Identidade, missão e estilo. Não precisa ficar perfeito.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Use por alguns dias</h4>
+<p class="text-neutral-300 text-sm">Observe onde ele "erra o tom" ou não prioriza certo.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Refine</h4>
+<p class="text-neutral-300 text-sm">Ajuste o soul.md com base no comportamento real. Repita.</p>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Erro comum</h3>
+<p class="text-neutral-300">Escrever um soul.md enorme logo de cara. Comece enxuto: 1 parágrafo por seção. Soul inchado vira ruído e gasta tokens em todo turno.</p>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📌</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">O que é</strong><span class="text-neutral-400"> — arquivo que transforma chatbot genérico em assistente com personalidade.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Quatro blocos</strong><span class="text-neutral-400"> — identidade, missão, metas e valores dão direção.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Estilo</strong><span class="text-neutral-400"> — tom, tamanho e tratamento mudam a sensação de usar.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Personagem</strong><span class="text-neutral-400"> — arquétipo consistente (Arnold, KITT, mentor sóbrio).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Template</strong><span class="text-neutral-400"> — comece enxuto e refine; o soul é vivo.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+<p class="text-neutral-300">2.3 — Integrações: o canivete suíço</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Voltar para Trilha</a>
+<a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="modulo-2-3.html">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Hermes 21C · Módulo 2.2 · INEMA.CLUB · 2026</p>
+</div>
+</footer>
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
